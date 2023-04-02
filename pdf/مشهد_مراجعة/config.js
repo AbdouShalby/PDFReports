@@ -1,0 +1,1 @@
+IDRViewer.config = {"pagecount":1,"title":"Document","author":"","subject":"","keywords":"","creator":"wkhtmltopdf 0.12.4","producer":"Qt 4.8.7","creationdate":"D:20230323131017+03'00'","moddate":"","trapped":"","fileName":"مشهد_مراجعة.pdf","bounds":[[909,1286]],"bookmarks":[],"thumbnailType":"jpg","pageType":"html","pageLabels":[]};
