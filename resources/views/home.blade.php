@@ -17,7 +17,7 @@
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-title">
-                        <h4>Visitor in Device</h4>
+                        <h4>{{ __('dashboard.latest-reports') }}</h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

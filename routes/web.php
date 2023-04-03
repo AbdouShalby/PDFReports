@@ -22,6 +22,10 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/sick-leave', [HomeController::class, 'sickLeave'])->name('sick-leave');
+    Route::get('/sick-leave-fahd', [HomeController::class, 'sickLeaveFahd'])->name('sick-leave-fahd');
+    Route::get('/review-report', [HomeController::class, 'reviewReport'])->name('review-report');
+    Route::get('/review-scene', [HomeController::class, 'reviewScene'])->name('review-scene');
 
     Route::get('locale/{locale}',function($locale){
         Session::put('locale',$locale);
