@@ -1,4 +1,4 @@
-@php($title = 'all-reports')
+@php($title = 'latest-reports')
 @extends('layouts.app')
 @section('content')
 <!-- Page wrapper  -->
@@ -6,7 +6,7 @@
     <!-- Bread crumb -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">{{ __('sidebar.all-reports') }}</h3>
+            <h3 class="text-primary">{{ __('sidebar.title') }}</h3>
         </div>
     </div>
     <!-- End Bread crumb -->

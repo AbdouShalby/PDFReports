@@ -12,6 +12,12 @@
                     <div class="card-title">
                         <h4>{{ __('sick-leave.title') }}</h4>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{ $message }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="basic-elements">
                             <form action="{{ route('store-sick-leave') }}" method="post">

@@ -15,4 +15,5 @@ return [
     'position' => 'Position',
     'medical-complex' => 'Medical Complex',
     'create' => 'Create',
+    'created-success' => 'Report Created Successfully',
 ];

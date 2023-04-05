@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('sick_leaves', function (Blueprint $table) {
             $table->id();
             $table->string('leave_id', 50)->unique();
-            $table->date('leave_duration_start');
-            $table->date('leave_duration_end');
+            $table->date('leave_start');
+            $table->date('leave_end');
             $table->date('issue_date');
             $table->string('name', 150);
             $table->integer('national_id');

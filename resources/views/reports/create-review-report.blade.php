@@ -12,15 +12,18 @@
                     <div class="card-title">
                         <h4>{{ __('review-report.title') }}</h4>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{ $message }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="basic-elements">
-                            <form action="{{ route('store-review-report') }}" method="post">
+                            <form action="{{ route('store-review-report') }}" method="post" enctype="multipart/form-data">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>{{ __('review-report.leave-id') }}</label>
-                                            <input name="leave_id" class="form-control @error('leave_id') is-invalid @enderror" value="{{ old('leave_id') }}" type="text" required placeholder="{{ __('review-report.leave-id') }}" autofocus>
-                                        </div>
                                         <div class="form-group">
                                             <label>{{ __('review-report.national-id') }}</label>
                                             <input name="national_id" class="form-control @error('national_id') is-invalid @enderror" value="{{ old('national_id') }}" type="number" required placeholder="{{ __('review-report.national-id') }}">
@@ -70,11 +73,9 @@
                                         <div class="form-group">
                                             <label>{{ __('review-report.status') }}</label>
                                             <select class="form-control @error('status') is-invalid @enderror" name="status" required>
-                                                <option>Test 1</option>
-                                                <option>Test 2</option>
-                                                <option>Test 3</option>
-                                                <option>Test 4</option>
-                                                <option>Test 5</option>
+                                                <option value="0">Test 1</option>
+                                                <option value="1">Test 2</option>
+                                                <option value="2">Test 3</option>
                                             </select>
                                         </div>
                                     </div>

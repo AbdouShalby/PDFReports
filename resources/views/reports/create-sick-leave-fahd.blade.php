@@ -12,15 +12,18 @@
                     <div class="card-title">
                         <h4>{{ __('sick-leave-fahd.title') }}</h4>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{ $message }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="basic-elements">
                             <form action="{{ route('store-sick-leave-fahd') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.leave-id') }}</label>
-                                            <input name="leave_id" class="form-control @error('leave_id') is-invalid @enderror" value="{{ old('leave_id') }}" type="text" required placeholder="{{ __('sick-leave-fahd.leave-id') }}" autofocus>
-                                        </div>
                                         <div class="form-group">
                                             <label>{{ __('sick-leave-fahd.leave-start') }}</label>
                                             <input name="leave_start" class="form-control @error('leave_start') is-invalid @enderror" value="{{ old('leave_start') }}" type="date" required placeholder="{{ __('sick-leave-fahd.leave-start') }}">
@@ -41,12 +44,12 @@
                                             <label>{{ __('sick-leave-fahd.national-id') }}</label>
                                             <input name="national_id" class="form-control @error('national_id') is-invalid @enderror" value="{{ old('national_id') }}" type="number" required placeholder="{{ __('sick-leave-fahd.national-id') }}">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>{{ __('sick-leave-fahd.nationality') }}</label>
                                             <input name="nationality" class="form-control @error('nationality') is-invalid @enderror" value="{{ old('nationality') }}" type="text" required placeholder="{{ __('sick-leave-fahd.nationality') }}">
                                         </div>
+                                    </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>{{ __('sick-leave-fahd.employer') }}</label>
                                             <input name="employer" class="form-control @error('employer') is-invalid @enderror" value="{{ old('employer') }}" type="text" required placeholder="{{ __('sick-leave-fahd.employer') }}">

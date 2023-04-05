@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Review Scene',
+    'title' => 'Statement of Visit',
     'leave-id' => 'Leave ID',
     'admission' => 'Admission',
     'discharge' => 'Discharge',
@@ -16,4 +16,5 @@ return [
     'visit-type' => 'Visit Type',
     'medical-complex' => 'Medical Complex',
     'create' => 'Create',
+    'created-success' => 'Report Created Successfully',
 ];

@@ -12,15 +12,18 @@
                     <div class="card-title">
                         <h4>{{ __('review-scene.title') }}</h4>
                     </div>
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-primary alert-dismissible fade show">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            {{ $message }}
+                        </div>
+                    @endif
                     <div class="card-body">
                         <div class="basic-elements">
-                            <form action="" method="post">
+                            <form action="{{ route('store-review-scene') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <label>{{ __('review-scene.leave-id') }}</label>
-                                            <input name="leave_id" class="form-control @error('leave_id') is-invalid @enderror" value="{{ old('leave_id') }}" type="text" required placeholder="{{ __('review-scene.leave-id') }}" autofocus>
-                                        </div>
                                         <div class="form-group">
                                             <label>{{ __('review-scene.admission') }}</label>
                                             <input name="admission" class="form-control @error('admission') is-invalid @enderror" value="{{ old('admission') }}" type="datetime-local" required placeholder="{{ __('review-scene.admission') }}">
@@ -31,7 +34,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>{{ __('review-scene.waiting-period') }}</label>
-                                            <input name="waiting_period" class="form-control @error('waiting_period') is-invalid @enderror" value="{{ old('waiting_period') }}" type="time" required placeholder="{{ __('review-scene.waiting-period') }}">
+                                            <input name="waiting_period" class="form-control @error('waiting_period') is-invalid @enderror" value="{{ old('waiting_period') }}" type="number" required placeholder="{{ __('review-scene.waiting-period') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>{{ __('review-scene.issue-date') }}</label>

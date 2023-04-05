@@ -16,4 +16,5 @@ return [
     'signature' => 'Signature',
     'status' => 'Status',
     'create' => 'Create',
+    'created-success' => 'Report Created Successfully',
 ];
