@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Validator;
 
 class PDFReportsController extends Controller
 {
+    public function allSickLeave() {
+        $sick_leaves = SickLeave::orderByDesc('created_at')->paginate(20);
+        return view('reports.all-sick-leaves', [
+            'sick_leaves' => $sick_leaves
+        ]);
+    }
     public function createSickLeave() {
         return view('reports.create-sick-leave');
     }
@@ -20,7 +26,8 @@ class PDFReportsController extends Controller
             'leave_start' => 'required|date',
             'leave_end' => 'required|date',
             'issue_date' => 'required|date',
-            'name' => 'required|string',
+            'name_en' => 'required|string',
+            'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
             'nationality' => 'required|string',
             'employer' => 'required|string',
@@ -43,12 +50,18 @@ class PDFReportsController extends Controller
             return $id; // returns the generated leave_id
         }
 
+        $leave_start = \Carbon\Carbon::createFromFormat('Y-m-d', $request->leave_start)->startOfDay();
+        $leave_end = \Carbon\Carbon::createFromFormat('Y-m-d', $request->leave_end)->startOfDay();
+        $duration = $leave_end->diffInDays($leave_start);
+
         $leave = new SickLeave();
         $leave->leave_id = generateLeaveID();
         $leave->leave_start = $request->leave_start;
         $leave->leave_end = $request->leave_end;
+        $leave->leave_duration = $duration;
         $leave->issue_date = $request->issue_date;
-        $leave->name = $request->name;
+        $leave->name_en = $request->name_en;
+        $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
         $leave->nationality = $request->nationality;
         $leave->employer = $request->employer;
@@ -60,6 +73,12 @@ class PDFReportsController extends Controller
         return back()->with('success', __('sick-leave.created-success'));
     }
 
+    public function allSickLeaveFahd() {
+        $sick_leaves_fahd = SickLeaveFahd::orderByDesc('created_at')->paginate(20);
+        return view('reports.all-sick-leaves-fahd', [
+            'sick_leaves_fahd' => $sick_leaves_fahd
+        ]);
+    }
     public function createSickLeaveFahd() {
         return view('reports.create-sick-leave-fahd');
     }
@@ -68,7 +87,8 @@ class PDFReportsController extends Controller
             'leave_start' => 'required|date',
             'leave_end' => 'required|date',
             'issue_date' => 'required|date',
-            'name' => 'required|string',
+            'name_en' => 'required|string',
+            'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
             'nationality' => 'required|string',
             'employer' => 'required|string',
@@ -92,12 +112,18 @@ class PDFReportsController extends Controller
             return $id; // returns the generated leave_id
         }
 
+        $leave_start = \Carbon\Carbon::createFromFormat('Y-m-d', $request->leave_start)->startOfDay();
+        $leave_end = \Carbon\Carbon::createFromFormat('Y-m-d', $request->leave_end)->startOfDay();
+        $duration = $leave_end->diffInDays($leave_start);
+
         $leave = new SickLeaveFahd();
         $leave->leave_id = generateLeaveID();
         $leave->leave_start = $request->leave_start;
         $leave->leave_end = $request->leave_end;
+        $leave->leave_duration = $duration;
         $leave->issue_date = $request->issue_date;
-        $leave->name = $request->name;
+        $leave->name_en = $request->name_en;
+        $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
         $leave->nationality = $request->nationality;
         $leave->employer = $request->employer;
@@ -117,7 +143,8 @@ class PDFReportsController extends Controller
         $validator = Validator::make($request->all(), [
             'national_id' => 'required|numeric',
             'national_type' => 'required|string',
-            'name' => 'required|string',
+            'name_en' => 'required|string',
+            'name_ar' => 'required|string',
             'print_date' => 'required|date',
             'nationality' => 'required|string',
             'birth_date' => 'required|date',
@@ -147,7 +174,8 @@ class PDFReportsController extends Controller
         $leave->leave_id = generateLeaveID();
         $leave->national_id = $request->national_id;
         $leave->national_type = $request->national_type;
-        $leave->name = $request->name;
+        $leave->name_en = $request->name_en;
+        $leave->name_ar = $request->name_ar;
         $leave->print_date = $request->print_date;
         $leave->nationality = $request->nationality;
         $leave->birth_date = $request->birth_date;
@@ -171,7 +199,8 @@ class PDFReportsController extends Controller
             'discharge' => 'required|date',
             'waiting_period' => 'required|numeric',
             'issue_date' => 'required|date',
-            'name' => 'required|string',
+            'name_en' => 'required|string',
+            'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
             'nationality' => 'required|string',
             'employer' => 'required|string',
@@ -201,7 +230,8 @@ class PDFReportsController extends Controller
         $leave->discharge = $request->discharge;
         $leave->waiting_period = $request->waiting_period;
         $leave->issue_date = $request->issue_date;
-        $leave->name = $request->name;
+        $leave->name_en = $request->name_en;
+        $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
         $leave->nationality = $request->nationality;
         $leave->employer = $request->employer;

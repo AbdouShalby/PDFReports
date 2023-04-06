@@ -18,7 +18,8 @@ return new class extends Migration
             $table->dateTime('discharge');
             $table->time('waiting_period');
             $table->date('issue_date');
-            $table->string('name', 150);
+            $table->string('name_en', 150);
+            $table->string('name_ar', 150);
             $table->integer('national_id');
             $table->string('nationality', 50);
             $table->string('employer', 100);

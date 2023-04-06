@@ -97,12 +97,12 @@
             </div>
             @else
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-8 m-auto">
-                        <div class="alert alert-danger mt-5">
+                <div class="row" style="padding-top: 20%">
+                    <div class="col-8 m-auto" style="box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15); border-radius: 5px; padding: 20px">
+                        <div class="alert alert-danger">
                             {{ __('check.sorry') }}
                         </div>
-                        <div class="">
+                        <div>
                             <a href="{{ route('check-sick-leave') }}" class="btn btn-info">Back</a>
                         </div>
                     </div>

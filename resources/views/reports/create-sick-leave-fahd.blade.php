@@ -37,8 +37,12 @@
                                             <input name="issue_date" class="form-control @error('issue_date') is-invalid @enderror" value="{{ old('issue_date') }}" type="date" required placeholder="{{ __('sick-leave-fahd.issue-date') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.name') }}</label>
-                                            <input name="name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" type="text" required placeholder="{{ __('sick-leave-fahd.name') }}">
+                                            <label>{{ __('sick-leave-fahd.name-en') }}</label>
+                                            <input name="name_en" class="form-control @error('name_en') is-invalid @enderror" value="{{ old('name_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.name-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.name-ar') }}</label>
+                                            <input name="name_ar" class="form-control @error('name_ar') is-invalid @enderror" value="{{ old('name_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.name-ar') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>{{ __('sick-leave-fahd.national-id') }}</label>

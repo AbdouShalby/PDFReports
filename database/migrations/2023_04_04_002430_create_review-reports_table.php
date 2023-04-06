@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('leave_id', 50)->unique();
             $table->integer('national_id');
             $table->string('national_type');
-            $table->string('name', 150);
+            $table->string('name_en', 150);
+            $table->string('name_ar', 150);
             $table->date('print_date');
             $table->string('nationality', 50);
             $table->date('birth_date');
