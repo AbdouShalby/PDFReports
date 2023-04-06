@@ -23,7 +23,6 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/sick-leave.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/sick-leave-fahd.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/review-report.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/review-scene.css') }}" rel="stylesheet" type="text/css" />

@@ -42,31 +42,24 @@
                     <div class="card-title">
                         <h4>{{ __('check.title') }}</h4>
                     </div>
-                    <div class="card-body mb-3">{{ __('check.select') }}</div>
+                    <div class="card-body mb-3">{{ __('check.fill-sick-leave') }}</div>
                     <div class="row justify-content-center ">
                         <div class="col-8 my-3 mx-3 p-3">
                             <div class="card">
-                                <div class="card-title">
-                                    <h4>Input Style</h4>
-                                </div>
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form>
+                                        <form action="{{ route('show-sick-leave') }}" method="post">
+                                            @csrf
                                             <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-default</code> for Default input.</p>
-                                                <input type="text" class="form-control input-default " placeholder="Input Default">
+                                                <label>{{ __('check.leave-id') }}</label>
+                                                <input name="leave_id" type="text" class="form-control input-flat" placeholder="{{ __('check.id-example') }}">
                                             </div>
                                             <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-flat</code> for flat input.</p>
-                                                <input type="text" class="form-control input-flat" placeholder="Input Flat ">
+                                                <label>{{ __('check.national-id') }}</label>
+                                                <input name="national_id" type="text" class="form-control input-flat" placeholder="1234567890">
                                             </div>
                                             <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-rounded</code> for rounded input.</p>
-                                                <input type="text" class="form-control input-rounded" placeholder="Input Rounded">
-                                            </div>
-                                            <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-focus</code> for focus input.</p>
-                                                <input type="text" class="form-control input-focus" placeholder="Input Focus">
+                                                <button type="submit" class="btn btn-info">{{ __('check.button') }}</button>
                                             </div>
                                         </form>
                                     </div>

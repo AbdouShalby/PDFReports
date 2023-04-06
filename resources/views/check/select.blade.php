@@ -52,7 +52,7 @@
                                 <li><i class="fa fa-check text-info"></i> Integer molestie lorem at massa</li>
                             </ul>
                             <div class="text-center">
-                                <a class="btn btn-dark text-black mt-3" href="#">{{ __('check.button') }}</a>
+                                <a class="btn btn-dark text-black mt-3" href="{{ route('check-sick-leave') }}">{{ __('check.button') }}</a>
                             </div>
                         </div>
                         <div class="col-5 my-3 mx-3 p-3 border border-dark bg-white">

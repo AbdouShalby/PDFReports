@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/check', [CheckController::class, 'check'])->name('qrcode-url');
 Route::get('/check/sick-leave', [CheckController::class, 'checkSickLeave'])->name('check-sick-leave');
+Route::post('/check/show-sick-leave', [CheckController::class, 'showSickLeave'])->name('show-sick-leave');
 
 Route::get('/qrcode', [HomeController::class, 'qrcodeUrl'])->name('qrcode-url');
 
@@ -43,11 +44,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/all-review-scene', [PDFReportsController::class, 'allReviewScene'])->name('all-review-scenes');
     Route::get('/create-review-scene', [PDFReportsController::class, 'createReviewScene'])->name('create-review-scene');
     Route::post('/store-review-scene', [PDFReportsController::class, 'storeReviewScene'])->name('store-review-scene');
-
-    Route::get('/sick-leave', [PDFReportsController::class, 'sickLeave'])->name('sick-leave');
-    Route::get('/sick-leave-fahd', [PDFReportsController::class, 'sickLeaveFahd'])->name('sick-leave-fahd');
-    Route::get('/review-report', [PDFReportsController::class, 'reviewReport'])->name('review-report');
-    Route::get('/review-scene', [PDFReportsController::class, 'reviewScene'])->name('review-scene');
 
     Route::get('locale/{locale}',function($locale){
         Session::put('locale',$locale);
