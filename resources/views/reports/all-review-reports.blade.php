@@ -1,4 +1,4 @@
-@php($title = 'all-sick-leaves-fahd')
+@php($title = 'all-review-reports')
 @extends('layouts.app')
 @section('content')
 <!-- Page wrapper  -->
@@ -6,7 +6,7 @@
     <!-- Bread crumb -->
     <div class="row page-titles">
         <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">{{ __('sidebar.all-sick-leaves-fahd') }}</h3>
+            <h3 class="text-primary">{{ __('sidebar.all-review-reports') }}</h3>
         </div>
     </div>
     <!-- End Bread crumb -->
@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
-                    @if(count($sick_leaves_fahd) > 0)
+                    @if(count($review_reports) > 0)
                     <div class="card-title">
                         <h4>{{ __('dashboard.latest-reports') }}</h4>
                     </div>
@@ -32,32 +32,32 @@
                                 <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>{{ __('sick-leave-fahd.leave-id') }}</th>
-                                    <th>{{ __('sick-leave-fahd.leave-duration') }}</th>
-                                    <th>{{ __('sick-leave-fahd.issue-date') }}</th>
-                                    <th>{{ __('sick-leave-fahd.name-ar') }}</th>
+                                    <th>{{ __('review-report.leave-id') }}</th>
+                                    <th>{{ __('review-report.national-id') }}</th>
+                                    <th>{{ __('review-report.national-type') }}</th>
+                                    <th>{{ __('review-report.name-ar') }}</th>
                                     <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($sick_leaves_fahd as $report)
+                                @foreach($review_reports as $report)
                                 <tr>
                                     <td>{{ $report->id }}</td>
-                                    <td><a class="btn text-primary" href="{{ route('show-sick-leave-fahd', $report->id) }}">{{ $report->leave_id }}</a></td>
-                                    <td>{{ $report->leave_duration . __('sick-leave-fahd.days') .' - '. __('sick-leave-fahd.from') . '(' . $report->leave_start . ') - ' . __('sick-leave-fahd.to') . '(' . $report->leave_end . ')' }}</td>
-                                    <td>{{ $report->issue_date }}</td>
+                                    <td><a class="btn text-primary" href="">{{ $report->leave_id }}</a></td>
+                                    <td>{{ $report->national_id }}</td>
+                                    <td>{{ $report->national_type }}</td>
                                     <td>{{ $report->name_ar }}</td>
                                     <td>
-                                        <a class="btn btn-danger" href="{{ route('delete-sick-leave-fahd', $report->id) }}"><i class="fa fa-trash"></i></a>
-                                        <a class="btn btn-success" href="{{ route('edit-sick-leave-fahd', $report->id) }}"><i class="fa fa-pencil-square-o"></i></a>
-                                        <a class="btn btn-primary" href="{{ route('show-sick-leave-fahd', $report->id) }}"><i class="fa fa-arrow-circle-o-right"></i></a>
+                                        <a class="btn btn-danger" href="{{ route('delete-review-report', $report->id) }}"><i class="fa fa-trash"></i></a>
+                                        <a class="btn btn-success" href="{{ route('edit-review-report', $report->id) }}"><i class="fa fa-pencil-square-o"></i></a>
+                                        <a class="btn btn-primary" href="{{ route('show-review-report', $report->id) }}"><i class="fa fa-arrow-circle-o-right"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                             <div class="d-flex justify-content-end mr-3 mb-3">
-                                {!! $sick_leaves_fahd->links() !!}
+                                {!! $review_reports->links() !!}
                             </div>
                         </div>
                     </div>
@@ -69,9 +69,9 @@
                             </div>
                         @endif
                         <div class="card-title">
-                            <h4>{{ __('sick-leave-fahd.empty') }}</h4>
+                            <h4>{{ __('review-report.empty') }}</h4>
                             <br>
-                            <a href="{{ route('create-sick-leave-fahd') }}" class="btn btn-success"><i class="fa fa-plus"></i> {{ __('sick-leave-fahd.add-one') }}</a>
+                            <a href="{{ route('create-review-report') }}" class="btn btn-success"><i class="fa fa-plus"></i> {{ __('sick-leave.add-one') }}</a>
                         </div>
                     @endif
                 </div>

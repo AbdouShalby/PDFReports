@@ -19,6 +19,10 @@ return [
     'position' => 'Position',
     'medical-complex' => 'Medical Complex',
     'create' => 'Create',
+    'update' => 'Update',
     'empty' => 'There\'s No Reports',
+    'add-one' => 'Add One',
     'created-success' => 'Report Created Successfully',
+    'updated-success' => 'Report Updated Successfully',
+    'deleted' => 'Report Deleted',
 ];

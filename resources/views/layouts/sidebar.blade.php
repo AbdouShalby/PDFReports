@@ -18,7 +18,7 @@
                     <li class="{{ $title == 'sick-leave-fahd' ? 'active' : '' }}"> <a href="{{ route('create-sick-leave-fahd') }}"><i class="fa fa-hospital-o"></i><span class="hide-menu">{{ __('sidebar.create-sick-leave-fahd') }}</span></a></li>
                     <li class="nav-devider"></li>
                     <li class="nav-label">{{ __('sidebar.review-title') }}</li>
-                    <li class="{{ $title == 'all-reports' ? 'active' : '' }}"> <a href="{{ route('all-review-reports') }}"><i class="fa fa-th-large"></i><span class="hide-menu">{{ __('sidebar.all-review-reports') }}</span></a></li>
+                    <li class="{{ $title == 'all-review-reports' ? 'active' : '' }}"> <a href="{{ route('all-review-reports') }}"><i class="fa fa-th-large"></i><span class="hide-menu">{{ __('sidebar.all-review-reports') }}</span></a></li>
                     <li class="{{ $title == 'review-report' ? 'active' : '' }}"> <a href="{{ route('create-review-report') }}"><i class="fa fa-eye"></i><span class="hide-menu">{{ __('sidebar.create-review-report') }}</span></a></li>
                     <li class="nav-devider"></li>
                     <li class="nav-label">{{ __('sidebar.scene-title') }}</li>

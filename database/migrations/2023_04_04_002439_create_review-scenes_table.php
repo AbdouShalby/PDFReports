@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('leave_id', 50)->unique();
             $table->dateTime('admission');
             $table->dateTime('discharge');
-            $table->time('waiting_period');
+            $table->tinyInteger('waiting_period');
             $table->date('issue_date');
             $table->string('name_en', 150);
             $table->string('name_ar', 150);
