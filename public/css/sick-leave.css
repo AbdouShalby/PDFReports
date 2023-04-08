@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
 sup {
     top: -0.4em;
     vertical-align: baseline;
@@ -218,4 +219,9 @@ a:visited {text-decoration:none;}
     font-size: 0.668634em;
     font-family: "UKMWVK+Cairo-SemiBold";
     color: #000000;
+}
+
+div.stl_09[dir="ltr"] {
+    font-family: 'Cairo', sans-serif !important;
+    text-align: center;
 }
