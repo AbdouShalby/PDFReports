@@ -72,6 +72,8 @@
                         @endif
                         <div class="card-title">
                             <h4>{{ __('review-scene.empty') }}</h4>
+                            <br>
+                            <a href="{{ route('create-review-scene') }}" class="btn btn-success"><i class="fa fa-plus"></i> {{ __('sick-leave.add-one') }}</a>
                         </div>
                     @endif
                 </div>

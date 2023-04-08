@@ -40,14 +40,14 @@
             <div class="col-12">
                 <div class="card check">
                     <div class="card-title">
-                        <h4>{{ __('check.fill-sick-leave') }}</h4>
+                        <h4>{{ __('check.fill-sick-leave-fahad') }}</h4>
                     </div>
                     <div class="row justify-content-center ">
                         <div class="col-8 my-3 mx-3 p-3">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="basic-form">
-                                        <form action="{{ route('show-out-sick-leave') }}" method="post">
+                                        <form action="{{ route('show-out-sick-leave-fahad') }}" method="post">
                                             @csrf
                                             <div class="form-group">
                                                 <label>{{ __('check.leave-id') }}</label>

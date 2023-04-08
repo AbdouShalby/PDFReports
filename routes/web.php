@@ -18,9 +18,19 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-Route::get('/check', [CheckController::class, 'check'])->name('qrcode-url');
+Route::get('/check', [CheckController::class, 'check'])->name('check');
+
 Route::get('/check/sick-leave', [CheckController::class, 'checkSickLeave'])->name('check-sick-leave');
-Route::post('/check/show-sick-leave', [CheckController::class, 'showSickLeave'])->name('show-sick-leave');
+Route::post('/check/show-sick-leave', [CheckController::class, 'showSickLeave'])->name('show-out-sick-leave');
+
+Route::get('/check/sick-leave-fahad', [CheckController::class, 'checkSickLeaveFahad'])->name('check-sick-leave-fahad');
+Route::post('/check/show-sick-leave-fahad', [CheckController::class, 'showSickLeaveFahad'])->name('show-out-sick-leave-fahad');
+
+Route::get('/check/review-report', [CheckController::class, 'checkReviewReport'])->name('check-review-report');
+Route::post('/check/show-review-report', [CheckController::class, 'showReviewReport'])->name('show-out-review-report');
+
+Route::get('/check/review-scene', [CheckController::class, 'checkReviewScene'])->name('check-review-scene');
+Route::post('/check/show-review-scene', [CheckController::class, 'showReviewScene'])->name('show-out-review-scene');
 
 Route::get('/qrcode', [HomeController::class, 'qrcodeUrl'])->name('qrcode-url');
 

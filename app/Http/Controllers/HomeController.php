@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReviewReport;
+use App\Models\ReviewScene;
+use App\Models\SickLeave;
+use App\Models\SickLeaveFahd;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -31,6 +35,27 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $count_sick_leaves = count(SickLeave::all());
+        $latest_sick_leaves = SickLeave::latest('created_at')->take(5)->get();
+
+        $count_sick_leaves_fahd = count(SickLeaveFahd::all());
+        $latest_sick_leaves_fahd = SickLeaveFahd::latest('created_at')->take(5)->get();
+
+        $count_review_reports = count(ReviewReport::all());
+        $latest_review_reports = ReviewReport::latest('created_at')->take(5)->get();
+
+        $count_review_scenes = count(ReviewScene::all());
+        $latest_review_scenes = ReviewScene::latest('created_at')->take(5)->get();
+
+        return view('home', [
+            'count_sick_leaves' => $count_sick_leaves,
+            'latest_sick_leaves' => $latest_sick_leaves,
+            'count_sick_leaves_fahd' => $count_sick_leaves_fahd,
+            'latest_sick_leaves_fahd' => $latest_sick_leaves_fahd,
+            'count_review_reports' => $count_review_reports,
+            'latest_review_reports' => $latest_review_reports,
+            'count_review_scenes' => $count_review_scenes,
+            'latest_review_scenes' => $latest_review_scenes,
+        ]);
     }
 }
