@@ -212,8 +212,8 @@
                                     <tr>
                                         <th>#</th>
                                         <th>{{ __('review-scene.leave-id') }}</th>
-                                        <th>{{ __('review-scene.waiting_period') }}</th>
-                                        <th>{{ __('review-scene.name_ar') }}</th>
+                                        <th>{{ __('review-scene.waiting-period') }}</th>
+                                        <th>{{ __('review-scene.name-ar') }}</th>
                                         <th>{{ __('review-scene.issue-date') }}</th>
                                     </tr>
                                     </thead>

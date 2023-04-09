@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' =>  env('APP_LANGUAGES','ar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('FALLBACK_LANGUAGES','ar'),
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,7 @@ return [
         /*
          * Laravel Framework Service Providers...
          */
+        Alkoumi\LaravelHijriDate\LaravelHijriDateServiceProvider::class,
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,

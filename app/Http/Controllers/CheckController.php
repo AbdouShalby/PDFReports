@@ -8,6 +8,7 @@ use App\Models\SickLeave;
 use App\Models\SickLeaveFahd;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Alkoumi\LaravelHijriDate\Hijri;
 
 class CheckController extends Controller
 {
@@ -33,8 +34,13 @@ class CheckController extends Controller
 
         $report = SickLeave::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
+        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+
         return view('reports.sick-leave', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 
@@ -55,8 +61,13 @@ class CheckController extends Controller
 
         $report = SickLeaveFahd::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
+        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+
         return view('reports.sick-leave-fahd', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 
@@ -99,8 +110,13 @@ class CheckController extends Controller
 
         $report = ReviewScene::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
+        $hijri_start = Hijri::Date('Y/m/d', $report->admission);
+        $hijri_end = Hijri::Date('Y/m/d', $report->discharge);
+
         return view('reports.review-scene', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 }

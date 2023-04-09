@@ -49,30 +49,50 @@
                                             <input name="national_id" class="form-control @error('national_id') is-invalid @enderror" value="{{ old('national_id') }}" type="number" required placeholder="{{ __('sick-leave-fahd.national-id') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.nationality') }}</label>
-                                            <input name="nationality" class="form-control @error('nationality') is-invalid @enderror" value="{{ old('nationality') }}" type="text" required placeholder="{{ __('sick-leave-fahd.nationality') }}">
+                                            <label>{{ __('sick-leave-fahd.nationality-en') }}</label>
+                                            <input name="nationality_en" class="form-control @error('nationality_en') is-invalid @enderror" value="{{ old('nationality_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.nationality-en') }}">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.nationality-ar') }}</label>
+                                            <input name="nationality_ar" class="form-control @error('nationality_ar') is-invalid @enderror" value="{{ old('nationality_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.nationality-ar') }}">
+                                        </div>
                                         <div class="form-group">
                                             <label>{{ __('sick-leave-fahd.employer') }}</label>
                                             <input name="employer" class="form-control @error('employer') is-invalid @enderror" value="{{ old('employer') }}" type="text" required placeholder="{{ __('sick-leave-fahd.employer') }}">
                                         </div>
+                                    </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.physician-name') }}</label>
-                                            <input name="physician_name" class="form-control @error('physician_name') is-invalid @enderror" value="{{ old('physician_name') }}" type="text" required placeholder="{{ __('sick-leave-fahd.physician-name') }}">
+                                            <label>{{ __('sick-leave-fahd.physician-name-en') }}</label>
+                                            <input name="physician_name_en" class="form-control @error('physician_name_en') is-invalid @enderror" value="{{ old('physician_name_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.physician-name-en') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.position') }}</label>
-                                            <input name="position" class="form-control @error('position') is-invalid @enderror" value="{{ old('position') }}" type="text" required placeholder="{{ __('sick-leave-fahd.position') }}">
+                                            <label>{{ __('sick-leave-fahd.physician-name-ar') }}</label>
+                                            <input name="physician_name_ar" class="form-control @error('physician_name_ar') is-invalid @enderror" value="{{ old('physician_name_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.physician-name-ar') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.diagnosis') }}</label>
-                                            <input name="diagnosis" class="form-control @error('diagnosis') is-invalid @enderror" value="{{ old('diagnosis') }}" type="text" required placeholder="{{ __('sick-leave-fahd.diagnosis') }}">
+                                            <label>{{ __('sick-leave-fahd.position-en') }}</label>
+                                            <input name="position_en" class="form-control @error('position_en') is-invalid @enderror" value="{{ old('position_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.position-en') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('sick-leave-fahd.medical-complex') }}</label>
-                                            <input name="medical_complex" class="form-control @error('medical_complex') is-invalid @enderror" value="{{ old('medical_complex') }}" type="text" required placeholder="{{ __('sick-leave-fahd.medical-complex') }}">
+                                            <label>{{ __('sick-leave-fahd.position-ar') }}</label>
+                                            <input name="position_ar" class="form-control @error('position_ar') is-invalid @enderror" value="{{ old('position_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.position-ar') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.diagnosis-en') }}</label>
+                                            <input name="diagnosis_en" class="form-control @error('diagnosis_en') is-invalid @enderror" value="{{ old('diagnosis_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.diagnosis-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.diagnosis-ar') }}</label>
+                                            <input name="diagnosis_ar" class="form-control @error('diagnosis_ar') is-invalid @enderror" value="{{ old('diagnosis_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.diagnosis-ar') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.medical-complex-en') }}</label>
+                                            <input name="medical_complex_en" class="form-control @error('medical_complex_en') is-invalid @enderror" value="{{ old('medical_complex_en') }}" type="text" required placeholder="{{ __('sick-leave-fahd.medical-complex-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('sick-leave-fahd.medical-complex-ar') }}</label>
+                                            <input name="medical_complex_ar" class="form-control @error('medical_complex_ar') is-invalid @enderror" value="{{ old('medical_complex_ar') }}" type="text" required placeholder="{{ __('sick-leave-fahd.medical-complex-ar') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">

@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700&display=swap');
 sup {
     top: -0.4em;
     vertical-align: baseline;
@@ -20,10 +21,10 @@ a:visited {text-decoration:none;}
 .stl_02 {
     height: 70.16666em;
     font-size: 1em;
-    margin: 0em;
+    margin: auto;
     line-height: 0.0em;
     display: block;
-    border-style: none;
+    border: 1px solid #000;
     width: 49.58333em;
 }
 
@@ -224,4 +225,9 @@ a:visited {text-decoration:none;}
 
 .ie .stl_33 {
     letter-spacing: 0.0091px;
+}
+
+div.stl_09[dir="ltr"] {
+    font-family: 'Cairo', sans-serif !important;
+    text-align: center;
 }

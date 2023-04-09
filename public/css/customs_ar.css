@@ -1,0 +1,36 @@
+* {
+    direction: rtl !important;
+    text-align: right;
+}
+.check {
+    min-height: 200px;
+    border: 2px solid silver;
+    background: linear-gradient(-45deg, #FFF, rgba(238, 238, 238, 0.5), #FFF);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}

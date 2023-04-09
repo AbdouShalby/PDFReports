@@ -12,6 +12,8 @@ return [
     'latest-review-scenes' => 'Latest Statements of Visit',
     'empty' => 'There\'s No Reports',
     'add-one' => 'Add One',
+    'arabic' => 'Arabic',
+    'english' => 'English',
     'logout' => 'Logout',
     'footer' => '© 2023 All rights reserved.',
 ];

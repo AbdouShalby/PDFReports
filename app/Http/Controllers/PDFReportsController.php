@@ -32,11 +32,15 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -66,11 +70,15 @@ class PDFReportsController extends Controller
         $leave->name_en = $request->name_en;
         $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
-        $leave->nationality = $request->nationality;
+        $leave->nationality_en = $request->nationality_en;
+        $leave->nationality_ar = $request->nationality_ar;
         $leave->employer = $request->employer;
-        $leave->physician_name = $request->physician_name;
-        $leave->position = $request->position;
-        $leave->medical_complex = $request->medical_complex;
+        $leave->physician_name_en = $request->physician_name_en;
+        $leave->physician_name_ar = $request->physician_name_ar;
+        $leave->position_en = $request->position_en;
+        $leave->position_ar = $request->position_ar;
+        $leave->medical_complex_en = $request->medical_complex_en;
+        $leave->medical_complex_ar = $request->medical_complex_ar;
         $leave->save();
 
         return back()->with('success', __('sick-leave.created-success'));
@@ -91,11 +99,15 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -116,11 +128,15 @@ class PDFReportsController extends Controller
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
             'national_id' => $request->national_id,
-            'nationality' => $request->nationality,
+            'nationality_en' => $request->nationality_en,
+            'nationality_ar' => $request->nationality_ar,
             'employer' => $request->employer,
-            'physician_name' => $request->physician_name,
-            'position' => $request->position,
-            'medical_complex' => $request->medical_complex,
+            'physician_name_en' => $request->physician_name_en,
+            'physician_name_ar' => $request->physician_name_ar,
+            'position_en' => $request->position_en,
+            'position_ar' => $request->position_ar,
+            'medical_complex_en' => $request->medical_complex_en,
+            'medical_complex_ar' => $request->medical_complex_ar,
         ]);
 
         return back()->with('success', __('sick-leave.updated-success'));
@@ -164,12 +180,17 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'diagnosis' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'diagnosis_en' => 'required|string',
+            'diagnosis_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -199,12 +220,17 @@ class PDFReportsController extends Controller
         $leave->name_en = $request->name_en;
         $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
-        $leave->nationality = $request->nationality;
+        $leave->nationality_en = $request->nationality_en;
+        $leave->nationality_ar = $request->nationality_en;
         $leave->employer = $request->employer;
-        $leave->physician_name = $request->physician_name;
-        $leave->position = $request->position;
-        $leave->diagnosis = $request->diagnosis;
-        $leave->medical_complex = $request->medical_complex;
+        $leave->physician_name_en = $request->physician_name_en;
+        $leave->physician_name_ar = $request->physician_name_ar;
+        $leave->position_en = $request->position_en;
+        $leave->position_ar = $request->position_ar;
+        $leave->diagnosis_en = $request->diagnosis_en;
+        $leave->diagnosis_ar = $request->diagnosis_ar;
+        $leave->medical_complex_en = $request->medical_complex_en;
+        $leave->medical_complex_ar = $request->medical_complex_ar;
         $leave->save();
 
         return back()->with('success', __('sick-leave-fahd.created-success'));
@@ -225,12 +251,17 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'diagnosis' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'diagnosis_en' => 'required|string',
+            'diagnosis_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -251,12 +282,17 @@ class PDFReportsController extends Controller
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
             'national_id' => $request->national_id,
-            'nationality' => $request->nationality,
+            'nationality_en' => $request->nationality_en,
+            'nationality_ar' => $request->nationality_ar,
             'employer' => $request->employer,
-            'physician_name' => $request->physician_name,
-            'position' => $request->position,
-            'diagnosis' => $request->diagnosis,
-            'medical_complex' => $request->medical_complex,
+            'physician_name_en' => $request->physician_name_en,
+            'physician_name_ar' => $request->physician_name_ar,
+            'position_en' => $request->position_en,
+            'position_ar' => $request->position_ar,
+            'diagnosis_en' => $request->diagnosis_en,
+            'diagnosis_ar' => $request->diagnosis_ar,
+            'medical_complex_en' => $request->medical_complex_en,
+            'medical_complex_ar' => $request->medical_complex_ar,
         ]);
 
         return back()->with('success', __('sick-leave-fahd.updated-success'));

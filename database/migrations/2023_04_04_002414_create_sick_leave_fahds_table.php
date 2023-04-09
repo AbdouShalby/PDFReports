@@ -21,12 +21,17 @@ return new class extends Migration
             $table->string('name_en', 150);
             $table->string('name_ar', 150);
             $table->integer('national_id');
-            $table->string('nationality', 50);
+            $table->string('nationality_en', 50);
+            $table->string('nationality_ar', 50);
             $table->string('employer', 100);
-            $table->string('physician_name', 150);
-            $table->string('position', 50);
-            $table->string('diagnosis', 50);
-            $table->string('medical_complex', 100);
+            $table->string('physician_name_en', 150);
+            $table->string('physician_name_ar', 150);
+            $table->string('position_en', 50);
+            $table->string('position_ar', 50);
+            $table->string('diagnosis_en', 50);
+            $table->string('diagnosis_ar', 50);
+            $table->string('medical_complex_en', 100);
+            $table->string('medical_complex_ar', 100);
             $table->timestamps();
         });
     }

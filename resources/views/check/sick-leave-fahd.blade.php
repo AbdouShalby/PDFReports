@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
@@ -16,7 +16,11 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/customs.css') }}" rel="stylesheet">
+    @if(app()->getLocale() == 'en')
+        <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
+    @else
+        <link rel="stylesheet" href="{{ asset('css/customs_ar.css') }}">
+    @endif
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -25,7 +29,7 @@
     <![endif]-->
 </head>
 
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar" {{( Session::get('locale') === 'en' ? 'ltr' : 'rtl' )}}>
 <!-- Preloader - style you can find in spinners.css -->
 <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">

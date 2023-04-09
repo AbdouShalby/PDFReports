@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
-Route::get('/check', [CheckController::class, 'check'])->name('check');
+Route::get('/', [CheckController::class, 'check'])->name('check');
 
 Route::get('/check/sick-leave', [CheckController::class, 'checkSickLeave'])->name('check-sick-leave');
 Route::post('/check/show-sick-leave', [CheckController::class, 'showSickLeave'])->name('show-out-sick-leave');
@@ -37,7 +37,7 @@ Route::get('/qrcode', [HomeController::class, 'qrcodeUrl'])->name('qrcode-url');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
 
     Route::get('/all-sick-leave', [PDFReportsController::class, 'allSickLeave'])->name('all-sick-leaves');
     Route::get('/create-sick-leave', [PDFReportsController::class, 'createSickLeave'])->name('create-sick-leave');

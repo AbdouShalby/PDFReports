@@ -23,7 +23,11 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/customs.css') }}" rel="stylesheet">
+    @if(app()->getLocale() == 'en')
+    <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
+    @else
+    <link rel="stylesheet" href="{{ asset('css/customs_ar.css') }}">
+    @endif
     <link href="{{ asset('css/sick-leave-fahd.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/review-report.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('css/review-scene.css') }}" rel="stylesheet" type="text/css" />
@@ -39,7 +43,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 </head>
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar" dir="{{( Session::get('locale') === 'en' ? 'ltr' : 'rtl' )}}">
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
