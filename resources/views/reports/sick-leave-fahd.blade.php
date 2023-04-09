@@ -57,7 +57,7 @@
                             <div class="stl_01" style="left:22.6709em;top: 26.5474em; "><span class="stl_17 stl_08 stl_19">{{ $report->issue_date }}</span></div>
                             <div class="stl_01" style="left:31.8644em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19" style="word-spacing:-0.033em;">{{ $hijri_start }} ) &nbsp;</span></div>
                             <div class="stl_01" style="left:37.9656em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19">{{ $report->leave_duration }}</span></div>
-                            <div class="stl_01" style="left:31.9858em;top: 28.5844em; "><div dir="ltr" class="stl_20 stl_08 stl_19" style="display:inline;">{{ $report->name_ar }}</div><span class="stl_20 stl_08 stl_19"> &nbsp;</span></div>
+                            <div class="stl_01" style="left:31.9858em;top: 28.5844em; "><div dir="ltr" class="stl_20 stl_08 stl_19" style="display:inline;"></div><span class="stl_20 stl_08 stl_19"> &nbsp;</span></div>
                             <div class="stl_01" style="left:5.2446em;top: 29.0548em; "><span class="stl_12 stl_08 stl_21">Name &nbsp;</span></div>
                             <div class="stl_01" style="left:11.3634em;top: 29.1715em; "><span class="stl_22 stl_08 stl_19" style="word-spacing:0em;">{{ $report->name_en }}</span><span class="stl_22 stl_08 stl_19" style="word-spacing:0.219em;">&nbsp;</span></div>
                             <div class="stl_01" style="left:3.4058em;top: 31.604em; "><span class="stl_12 stl_08 stl_23" style="word-spacing:0.0079em;">National ID/Iqama &nbsp;</span></div>

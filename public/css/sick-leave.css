@@ -221,7 +221,7 @@ a:visited {text-decoration:none;}
     color: #000000;
 }
 
-div.stl_09[dir="ltr"] {
+div[dir="ltr"] {
     font-family: 'Cairo', sans-serif !important;
     text-align: center;
 }

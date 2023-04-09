@@ -110,8 +110,8 @@ class CheckController extends Controller
 
         $report = ReviewScene::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        $hijri_start = Hijri::Date('Y/m/d', $report->admission);
-        $hijri_end = Hijri::Date('Y/m/d', $report->discharge);
+        $hijri_start = Hijri::Date('A h:i d/m/Y', $report->admission);
+        $hijri_end = Hijri::Date('A h:i d/m/Y', $report->discharge);
 
         return view('reports.review-scene', [
             'report' => $report,

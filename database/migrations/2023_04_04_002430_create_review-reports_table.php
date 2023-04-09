@@ -24,8 +24,10 @@ return new class extends Migration
             $table->string('work', 50);
             $table->date('admission');
             $table->date('discharge');
+            $table->date('review_date');
             $table->longText('details');
-            $table->string('signature');
+            $table->string('physician_name');
+            $table->string('physician_position');
             $table->tinyInteger('status');
             $table->timestamps();
         });

@@ -55,8 +55,12 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="form-group">
-                                            <label>{{ __('review-scene.nationality') }}</label>
-                                            <input name="nationality" class="form-control @error('nationality') is-invalid @enderror" value="{{ $report->nationality }}" type="text" required placeholder="{{ __('review-scene.nationality') }}">
+                                            <label>{{ __('review-scene.nationality-en') }}</label>
+                                            <input name="nationality_en" class="form-control @error('nationality_en') is-invalid @enderror" value="{{ $report->nationality_en }}" type="text" required placeholder="{{ __('review-scene.nationality-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('review-scene.nationality-ar') }}</label>
+                                            <input name="nationality_ar" class="form-control @error('nationality_ar') is-invalid @enderror" value="{{ $report->nationality_ar }}" type="text" required placeholder="{{ __('review-scene.nationality-ar') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>{{ __('review-scene.employer') }}</label>
@@ -67,16 +71,28 @@
                                             <input name="physician_name" class="form-control @error('physician_name') is-invalid @enderror" value="{{ $report->physician_name }}" type="text" required placeholder="{{ __('review-scene.physician-name') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('review-scene.position') }}</label>
-                                            <input name="position" class="form-control @error('position') is-invalid @enderror" value="{{ $report->position }}" type="text" required placeholder="{{ __('review-scene.position') }}">
+                                            <label>{{ __('review-scene.position-en') }}</label>
+                                            <input name="position_en" class="form-control @error('position_en') is-invalid @enderror" value="{{ $report->position_en }}" type="text" required placeholder="{{ __('review-scene.position-en') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('review-scene.visit-type') }}</label>
-                                            <input name="visit_type" class="form-control @error('visit_type') is-invalid @enderror" value="{{ $report->visit_type }}" type="text" required placeholder="{{ __('review-scene.visit-type') }}">
+                                            <label>{{ __('review-scene.position-ar') }}</label>
+                                            <input name="position_ar" class="form-control @error('position_ar') is-invalid @enderror" value="{{ $report->position_ar }}" type="text" required placeholder="{{ __('review-scene.position-ar') }}">
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('review-scene.medical-complex') }}</label>
-                                            <input name="medical_complex" class="form-control @error('medical_complex') is-invalid @enderror" value="{{ $report->medical_complex }}" type="text" required placeholder="{{ __('review-scene.medical-complex') }}">
+                                            <label>{{ __('review-scene.visit-type-en') }}</label>
+                                            <input name="visit_type_en" class="form-control @error('visit_type_en') is-invalid @enderror" value="{{ $report->visit_type_en }}" type="text" required placeholder="{{ __('review-scene.visit-type-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('review-scene.visit-type-ar') }}</label>
+                                            <input name="visit_type_ar" class="form-control @error('visit_type_ar') is-invalid @enderror" value="{{ $report->visit_type_ar }}" type="text" required placeholder="{{ __('review-scene.visit-type-ar') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('review-scene.medical-complex-en') }}</label>
+                                            <input name="medical_complex_en" class="form-control @error('medical_complex_en') is-invalid @enderror" value="{{ $report->medical_complex_en }}" type="text" required placeholder="{{ __('review-scene.medical-complex-en') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('review-scene.medical-complex-ar') }}</label>
+                                            <input name="medical_complex_ar" class="form-control @error('medical_complex_ar') is-invalid @enderror" value="{{ $report->medical_complex_ar }}" type="text" required placeholder="{{ __('review-scene.medical-complex-ar') }}">
                                         </div>
                                     </div>
                                     <div class="col-12 text-center">

@@ -340,8 +340,10 @@ class PDFReportsController extends Controller
             'work' => 'required|string',
             'admission' => 'required|date',
             'discharge' => 'required|date',
+            'review_date' => 'required|date',
             'details' => 'required|string',
-            'signature' => 'required|image|mimes:jpeg,png,jpg,gif|max:6144',
+            'physician_name' => 'required|string',
+            'physician_position' => 'required|string',
             'status' => 'required|in:0,1,2'
         ]);
 
@@ -371,8 +373,10 @@ class PDFReportsController extends Controller
         $leave->work = $request->work;
         $leave->admission = $request->admission;
         $leave->discharge = $request->discharge;
+        $leave->review_date = $request->review_date;
         $leave->details = $request->details;
-        $leave->signature = $request->file('signature')->storeAs('public/signatures', uniqid() . '.' . $request->file('signature')->getClientOriginalExtension());
+        $leave->physician_name = $request->physician_name;
+        $leave->physician_position = $request->physician_position;
         $leave->status = $request->status;
         $leave->save();
 
@@ -398,8 +402,10 @@ class PDFReportsController extends Controller
             'work' => 'required|string',
             'admission' => 'required|date',
             'discharge' => 'required|date',
+            'review_date' => 'required|date',
             'details' => 'required|string',
-            'signature' => 'image|mimes:jpeg,png,jpg,gif|max:6144',
+            'physician_name' => 'required|string',
+            'physician_position' => 'required|string',
             'status' => 'required|in:0,1,2'
         ]);
 
@@ -411,11 +417,6 @@ class PDFReportsController extends Controller
 
         $report = ReviewReport::where('id', $id)->first();
 
-        if ($request->file('signature')) {
-            $signature = $request->file('signature')->storeAs('public/signatures', uniqid() . '.' . $request->file('signature')->getClientOriginalExtension());
-        } else {
-            $signature = $report->signature;
-        }
         ReviewReport::where('id', $id)->update([
             'national_id' => $request->national_id,
             'national_type' => $request->national_type,
@@ -427,8 +428,10 @@ class PDFReportsController extends Controller
             'work' => $request->work,
             'admission' => $request->admission,
             'discharge' => $request->discharge,
+            'review_date' => $request->discharge,
             'details' => $request->details,
-            'signature' => $signature,
+            'physician_name' => $request->physician_name,
+            'physician_position' => $request->physician_position,
             'status' => $request->status,
         ]);
 
@@ -474,12 +477,17 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'visit_type' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'visit_type_en' => 'required|string',
+            'visit_type_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -505,12 +513,17 @@ class PDFReportsController extends Controller
         $leave->name_en = $request->name_en;
         $leave->name_ar = $request->name_ar;
         $leave->national_id = $request->national_id;
-        $leave->nationality = $request->nationality;
+        $leave->nationality_en = $request->nationality_en;
+        $leave->nationality_ar = $request->nationality_ar;
         $leave->employer = $request->employer;
-        $leave->physician_name = $request->physician_name;
-        $leave->position = $request->position;
-        $leave->visit_type = $request->visit_type;
-        $leave->medical_complex = $request->medical_complex;
+        $leave->physician_name_en = $request->physician_name_en;
+        $leave->physician_name_ar = $request->physician_name_ar;
+        $leave->position_en = $request->position_en;
+        $leave->position_ar = $request->position_ar;
+        $leave->visit_type_en = $request->visit_type_en;
+        $leave->visit_type_ar = $request->visit_type_ar;
+        $leave->medical_complex_en = $request->medical_complex_en;
+        $leave->medical_complex_ar = $request->medical_complex_ar;
         $leave->save();
 
         return back()->with('success', __('review-scene.created-success'));
@@ -532,12 +545,17 @@ class PDFReportsController extends Controller
             'name_en' => 'required|string',
             'name_ar' => 'required|string',
             'national_id' => 'required|numeric',
-            'nationality' => 'required|string',
+            'nationality_en' => 'required|string',
+            'nationality_ar' => 'required|string',
             'employer' => 'required|string',
-            'physician_name' => 'required|string',
-            'position' => 'required|string',
-            'visit_type' => 'required|string',
-            'medical_complex' => 'required|string',
+            'physician_name_en' => 'required|string',
+            'physician_name_ar' => 'required|string',
+            'position_en' => 'required|string',
+            'position_ar' => 'required|string',
+            'visit_type_en' => 'required|string',
+            'visit_type_ar' => 'required|string',
+            'medical_complex_en' => 'required|string',
+            'medical_complex_ar' => 'required|string',
         ]);
 
         if ($validator->fails()) {
@@ -554,12 +572,17 @@ class PDFReportsController extends Controller
             'name_en' => $request->name_en,
             'name_ar' => $request->name_ar,
             'national_id' => $request->national_id,
-            'nationality' => $request->nationality,
+            'nationality_en' => $request->nationality_en,
+            'nationality_ar' => $request->nationality_ar,
             'employer' => $request->employer,
-            'physician_name' => $request->physician_name,
-            'position' => $request->position,
-            'visit_type' => $request->visit_type,
-            'medical_complex' => $request->medical_complex,
+            'physician_name_en' => $request->physician_name_en,
+            'physician_name_ar' => $request->physician_name_ar,
+            'position_en' => $request->position_en,
+            'position_ar' => $request->position_ar,
+            'visit_type_en' => $request->visit_type_en,
+            'visit_type_ar' => $request->visit_type_ar,
+            'medical_complex_en' => $request->medical_complex_en,
+            'medical_complex_ar' => $request->medical_complex_ar,
         ]);
 
         return back()->with('success', __('review-scene.updated-success'));

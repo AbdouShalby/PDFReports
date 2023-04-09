@@ -52,12 +52,12 @@
                                             <label>{{ __('review-report.birth-date') }}</label>
                                             <input name="birth_date" class="form-control @error('birth_date') is-invalid @enderror" value="{{ old('birth_date') }}" type="date" required placeholder="{{ __('review-report.birth-date') }}">
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>{{ __('review-report.work') }}</label>
                                             <input name="work" class="form-control @error('work') is-invalid @enderror" value="{{ old('work') }}" type="text" required placeholder="{{ __('review-report.work') }}">
                                         </div>
+                                    </div>
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label>{{ __('review-report.admission') }}</label>
                                             <input name="admission" class="form-control @error('admission') is-invalid @enderror" value="{{ old('admission') }}" type="date" required placeholder="{{ __('review-report.admission') }}">
@@ -67,12 +67,20 @@
                                             <input name="discharge" class="form-control @error('discharge') is-invalid @enderror" value="{{ old('discharge') }}" type="date" required placeholder="{{ __('review-report.discharge') }}">
                                         </div>
                                         <div class="form-group">
+                                            <label>{{ __('review-report.review-date') }}</label>
+                                            <input name="review_date" class="form-control @error('review_date') is-invalid @enderror" value="{{ old('review_date') }}" type="date" required placeholder="{{ __('review-report.review-date') }}">
+                                        </div>
+                                        <div class="form-group">
                                             <label>{{ __('review-report.details') }}</label>
                                             <textarea name="details" class="form-control @error('details') is-invalid @enderror" required placeholder="{{ __('review-report.details') }}">{{ old('details') }}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label>{{ __('review-report.signature') }}</label>
-                                            <input name="signature" class="form-control @error('signature') is-invalid @enderror" type="file" required placeholder="{{ __('review-report.signature') }}">
+                                            <label>{{ __('review-report.physician-name') }}</label>
+                                            <input name="physician_name" class="form-control @error('physician_name') is-invalid @enderror" type="text" required placeholder="{{ __('review-report.physician-name') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>{{ __('review-report.physician-position') }}</label>
+                                            <input name="physician_position" class="form-control @error('physician_position') is-invalid @enderror" type="text" required placeholder="{{ __('review-report.physician-position') }}">
                                         </div>
                                         <div class="form-group">
                                             <label>{{ __('review-report.status') }}</label>
