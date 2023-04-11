@@ -43,7 +43,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
 </head>
-<body class="fix-header fix-sidebar" dir="{{( Session::get('locale') === 'en' ? 'ltr' : 'rtl' )}}">
+<body class="fix-header fix-sidebar">
     <!-- Preloader - style you can find in spinners.css -->
     <div class="preloader">
         <svg class="circular" viewBox="25 25 50 50">
