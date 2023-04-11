@@ -34,14 +34,21 @@ class CheckController extends Controller
 
         $report = SickLeave::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
-        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+        if (!empty($report)) {
 
-        return view('reports.sick-leave', [
-            'report' => $report,
-            'hijri_start' => $hijri_start,
-            'hijri_end' => $hijri_end,
-        ]);
+            $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+            $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+
+            return view('reports.sick-leave', [
+                'report' => $report,
+                'hijri_start' => $hijri_start,
+                'hijri_end' => $hijri_end,
+            ]);
+
+        } else {
+            $errorMessage = 'No report found with the given data';
+            return back()->withErrors([$errorMessage])->withInput();
+        }
     }
 
     public function checkSickLeaveFahad() {
@@ -61,14 +68,21 @@ class CheckController extends Controller
 
         $report = SickLeaveFahd::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
-        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+        if (!empty($report)) {
 
-        return view('reports.sick-leave-fahd', [
-            'report' => $report,
-            'hijri_start' => $hijri_start,
-            'hijri_end' => $hijri_end,
-        ]);
+            $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+            $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
+
+            return view('reports.sick-leave-fahd', [
+                'report' => $report,
+                'hijri_start' => $hijri_start,
+                'hijri_end' => $hijri_end,
+            ]);
+
+        } else {
+            $errorMessage = 'No report found with the given data';
+            return back()->withErrors([$errorMessage])->withInput();
+        }
     }
 
     public function checkReviewReport() {
@@ -88,9 +102,16 @@ class CheckController extends Controller
 
         $report = ReviewReport::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        return view('reports.review-report', [
-            'report' => $report
-        ]);
+        if (!empty($report)) {
+
+            return view('reports.review-report', [
+                'report' => $report
+            ]);
+
+        } else {
+            $errorMessage = 'No report found with the given data';
+            return back()->withErrors([$errorMessage])->withInput();
+        }
     }
 
     public function checkReviewScene() {
@@ -110,13 +131,20 @@ class CheckController extends Controller
 
         $report = ReviewScene::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        $hijri_start = Hijri::Date('A h:i d/m/Y', $report->admission);
-        $hijri_end = Hijri::Date('A h:i d/m/Y', $report->discharge);
+        if (!empty($report)) {
 
-        return view('reports.review-scene', [
-            'report' => $report,
-            'hijri_start' => $hijri_start,
-            'hijri_end' => $hijri_end,
-        ]);
+            $hijri_start = Hijri::Date('A h:i d/m/Y', $report->admission);
+            $hijri_end = Hijri::Date('A h:i d/m/Y', $report->discharge);
+
+            return view('reports.review-scene', [
+                'report' => $report,
+                'hijri_start' => $hijri_start,
+                'hijri_end' => $hijri_end,
+            ]);
+
+        } else {
+            $errorMessage = 'No report found with the given data';
+            return back()->withErrors([$errorMessage])->withInput();
+        }
     }
 }

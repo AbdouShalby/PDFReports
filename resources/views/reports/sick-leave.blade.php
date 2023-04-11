@@ -72,7 +72,7 @@
                             <div class="stl_01 stl_07" style="left:41.7896em;top: 32.4782em; "><div dir="ltr" class="stl_17 stl_09 stl_12" style="display:inline;">ﺔ</div><div dir="ltr" class="stl_17 stl_09 stl_28" style="display:inline;">اﻟﺠﻨﺴﻴ</div><span class="stl_17 stl_09 stl_28"> &nbsp;</span></div>
                             <div class="stl_01 stl_07" style="left:15.0652em;top: 32.4782em; "><span class="stl_20 stl_09 stl_19" style="word-spacing:0.0001em;">{{ $report->nationality_en }} &nbsp;</span></div>
                             <div class="stl_01 stl_07" style="left:30.9034em;top: 32.4782em; "><div dir="ltr" class="stl_20 stl_09 stl_12" style="display:inline;">{{ $report->nationality_ar }}</div><span class="stl_20 stl_09 stl_19"> &nbsp;</span></div>
-                            <div class="stl_01 stl_07" style="left:22.486em;top: 34.9856em; "><div dir="ltr" class="stl_20 stl_09 stl_12" style="display:inline;">{{ $report->employer }}</div><span class="stl_20 stl_09 stl_10"> &nbsp;</span></div>
+                            <div class="stl_01 stl_07" style="left:30.486em;top: 34.9856em; "><div dir="ltr" class="stl_20 stl_09 stl_12" style="display:inline;">{{ $report->employer }}</div><span class="stl_20 stl_09 stl_10"> &nbsp;</span></div>
                             <div class="stl_01 stl_07" style="left:41.3091em;top: 34.9856em; "><div dir="ltr" class="stl_17 stl_09 stl_12" style="display:inline;">ﻞ</div><div dir="ltr" class="stl_17 stl_09 stl_10" style="display:inline;">اﻟﻌﻤ</div><span class="stl_17 stl_09 stl_12" style="word-spacing:-0.0009em;">&nbsp;</span><div dir="ltr" class="stl_17 stl_09 stl_27" style="display:inline;">ﺟﻬﺔ</div><span class="stl_17 stl_09 stl_27"> &nbsp;</span></div>
                             <div class="stl_01 stl_07" style="left:11.325em;top: 37.5044em; "><span class="stl_26 stl_09 stl_19" style="word-spacing:-0.0003em;">{{ $report->physician_name_en }}</span></div>
                             <div class="stl_01 stl_07" style="left:15.5666em;top: 40.0422em; "><span class="stl_20 stl_09 stl_21">{{ $report->position_en }}</span></div>
@@ -95,19 +95,9 @@
                     </div>
                 </div>
             </div>
-            @else
-            <div class="container-fluid">
-                <div class="row" style="padding-top: 20%">
-                    <div class="col-8 m-auto" style="box-shadow: 0 5px 20px 0 rgba(0,0,0,0.15); border-radius: 5px; padding: 20px">
-                        <div class="alert alert-danger">
-                            {{ __('check.sorry') }}
-                        </div>
-                        <div>
-                            <a href="{{ route('check-sick-leave') }}" class="btn btn-info">Back</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- End PAge Content -->
+            <div class="text-center my-3 btn-holder">
+                <a href="{{ route('check-sick-leave') }}" class="btn btn-primary">Back</a>
+                <button class="btn btn-primary" onclick="window.print()">Print</button>
             </div>
             @endif
         </div>

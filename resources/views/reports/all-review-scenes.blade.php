@@ -44,7 +44,7 @@
                                 @foreach($review_scenes as $report)
                                 <tr>
                                     <td>{{ $report->id }}</td>
-                                    <td><a class="btn text-primary" href="">{{ $report->leave_id }}</a></td>
+                                    <td><a class="btn text-primary" href="{{ route('show-review-scene', $report->id) }}">{{ $report->leave_id }}</a></td>
                                     <td>{{ $report->admission }}</td>
                                     <td>{{ $report->discharge }}</td>
                                     <td>{{ $report->waiting_period . ' ' . __('review-scene.hours') }}</td>

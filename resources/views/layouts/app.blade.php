@@ -28,9 +28,7 @@
     @else
     <link rel="stylesheet" href="{{ asset('css/customs_ar.css') }}">
     @endif
-    <link href="{{ asset('css/sick-leave-fahd.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/review-report.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('css/review-scene.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ isset($pdf_css) ? asset('css/'. $pdf_css) : '' }}" rel="stylesheet" type="text/css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>

@@ -51,15 +51,34 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="basic-form">
+                                        @if ($errors->any())
+                                            <div class="alert alert-danger">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                         <form action="{{ route('show-out-review-report') }}" method="post">
                                             @csrf
                                             <div class="form-group">
                                                 <label>{{ __('check.leave-id') }}</label>
                                                 <input name="leave_id" type="text" class="form-control input-flat" placeholder="{{ __('check.id-example') }}">
+                                                @error('leave_id')
+                                                <div class="alert alert-danger col-12 mt-1" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>{{ __('check.national-id') }}</label>
                                                 <input name="national_id" type="text" class="form-control input-flat" placeholder="1234567890">
+                                                @error('national_id')
+                                                <div class="alert alert-danger col-12 mt-1" role="alert">
+                                                    {{ $message }}
+                                                </div>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <button type="submit" class="btn btn-info">{{ __('check.button') }}</button>

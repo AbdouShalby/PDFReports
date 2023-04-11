@@ -217,3 +217,10 @@ a:visited {text-decoration:none;}
     font-family: "RTKLNE+ArialMT";
     color: #000000;
 }
+
+@media print {
+    @page {
+        margin: 0;  /* this affects the margin in the printer settings */
+    }
+    .page-titles, .card-title, .btn-holder, .footer { display: none}
+}

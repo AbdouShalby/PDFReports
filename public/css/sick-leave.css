@@ -225,3 +225,10 @@ div[dir="ltr"] {
     font-family: 'Cairo', sans-serif !important;
     text-align: center;
 }
+
+@media print {
+    @page {
+        margin: 0;  /* this affects the margin in the printer settings */
+    }
+    .page-titles, .card-title, .btn-holder, .footer { display: none}
+}

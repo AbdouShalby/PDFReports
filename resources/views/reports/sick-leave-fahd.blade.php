@@ -57,19 +57,26 @@
                             <div class="stl_01" style="left:22.6709em;top: 26.5474em; "><span class="stl_17 stl_08 stl_19">{{ $report->issue_date }}</span></div>
                             <div class="stl_01" style="left:31.8644em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19" style="word-spacing:-0.033em;">{{ $hijri_start }} ) &nbsp;</span></div>
                             <div class="stl_01" style="left:37.9656em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19">{{ $report->leave_duration }}</span></div>
-                            <div class="stl_01" style="left:31.9858em;top: 28.5844em; "><div dir="ltr" class="stl_20 stl_08 stl_19" style="display:inline;"></div><span class="stl_20 stl_08 stl_19"> &nbsp;</span></div>
+                            <div class="stl_01" style="left:30.9858em;top: 29.0em; "><span class="stl_20 stl_08 stl_19" style="font-family: 'Cairo', sans-serif;">{{ $report->name_ar }} &nbsp;</span></div>
                             <div class="stl_01" style="left:5.2446em;top: 29.0548em; "><span class="stl_12 stl_08 stl_21">Name &nbsp;</span></div>
-                            <div class="stl_01" style="left:11.3634em;top: 29.1715em; "><span class="stl_22 stl_08 stl_19" style="word-spacing:0em;">{{ $report->name_en }}</span><span class="stl_22 stl_08 stl_19" style="word-spacing:0.219em;">&nbsp;</span></div>
+                            <div class="stl_01" style="left:11.3634em;top: 29.1715em; "><span class="stl_22 stl_08 stl_19" style="word-spacing:0em;">{{ $report->name_en }}</span><span class="stl_22 stl_08 stl_19" style="word-spacing:0.219em;"></span></div>
                             <div class="stl_01" style="left:3.4058em;top: 31.604em; "><span class="stl_12 stl_08 stl_23" style="word-spacing:0.0079em;">National ID/Iqama &nbsp;</span></div>
                             <div class="stl_01" style="left:4.5133em;top: 34.1113em; "><span class="stl_12 stl_08 stl_24">Nationality &nbsp;</span></div>
                             <div class="stl_01" style="left:4.7223em;top: 36.6188em; "><span class="stl_12 stl_08 stl_25">Employer &nbsp;</span></div>
                             <div class="stl_01" style="left:23.0065em;top: 31.604em; "><span class="stl_17 stl_08 stl_19">{{ $report->national_id }}</span></div>
                             <div class="stl_01" style="left:42.22em;top: 31.604em; "><span class="stl_12 stl_08 stl_19">/</span></div>
-                            <div class="stl_01" style="left:15.0652em;top: 34.1113em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em;">Saudi Arabia &nbsp;</span></div>
-                            <div class="stl_01" style="left:17.0385em;top: 39.1932em; "><span class="stl_22 stl_08 stl_19">-</span></div>
+                            <div class="stl_01" style="left:32.065em;top: 34.1113em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em; font-family: 'Cairo', sans-serif;">{{ $report->nationality_ar }}</span></div>
+                            <div class="stl_01" style="left:31.565em;top: 36.5em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em; font-family: 'Cairo', sans-serif;">{{ $report->employer }}</span></div>
+                            <div class="stl_01" style="left:15.0652em;top: 34.1113em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em;">{{ $report->nationality_en }}</span></div>
+                            <div class="stl_01" style="left:13.0385em;top: 39.1932em; "><span class="stl_22 stl_08 stl_19">{{ $report->physician_name_en }}</span></div>
+                            <div class="stl_01" style="left:13.0385em;top: 41.693em; "><span class="stl_22 stl_08 stl_19">{{ $report->position_en }}</span></div>
+                            <div class="stl_01" style="left:13.0385em;top: 44.193em; "><span class="stl_22 stl_08 stl_19">{{ $report->diagnosis_en }}</span></div>
                             <div class="stl_01" style="left:3.782em;top: 39.1261em; "><span class="stl_12 stl_08 stl_26" style="word-spacing:0.0022em;">Physician Name &nbsp;</span></div>
                             <div class="stl_01" style="left:4.9312em;top: 41.6752em; "><span class="stl_12 stl_08 stl_27">Position &nbsp;</span></div>
-                            <div class="stl_01" style="left:27.1633em;top: 39.235em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em;">AFTAB AHMAD INAYAT UR REHMAN &nbsp;</span></div>
+                            <div class="stl_01" style="left:4.9312em;top: 44.175em; "><span class="stl_12 stl_08 stl_27">Diagnosis &nbsp;</span></div>
+                            <div class="stl_01" style="left:31.163em;top: 39.235em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->physician_name_ar }}</span></div>
+                            <div class="stl_01" style="left:31.163em;top: 41.735em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->position_ar }}</span></div>
+                            <div class="stl_01" style="left:31.163em;top: 44.135em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->diagnosis_ar }}</span></div>
                             <div class="stl_01" style="left:4.4507em;top: 56.7702em; "><span class="stl_29 stl_08 stl_30" style="word-spacing:-0.0007em;">Scan the QR code to electronically check the report &nbsp;</span></div>
                             <div class="stl_01" style="left:4.178em;top: 57.8149em; "><span class="stl_29 stl_08 stl_31" style="word-spacing:-0.0007em;">Make sure the information in this report matches the &nbsp;</span></div>
                             <div class="stl_01" style="left:6.4537em;top: 58.8596em; "><span class="stl_29 stl_08 stl_27" style="word-spacing:0.0022em;">.ones in the National ID or Iqama &nbsp;</span></div>

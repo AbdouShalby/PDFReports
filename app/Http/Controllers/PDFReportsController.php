@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Alkoumi\LaravelHijriDate\Hijri;
 use App\Models\ReviewReport;
 use App\Models\ReviewScene;
 use App\Models\SickLeave;
@@ -144,8 +145,12 @@ class PDFReportsController extends Controller
 
     public function showSickLeave($id) {
         $report = SickLeave::where('id', $id)->first();
+        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
         return view('reports.show-sick-leave', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 
@@ -300,8 +305,12 @@ class PDFReportsController extends Controller
 
     public function showSickLeaveFahd($id) {
         $report = SickLeaveFahd::where('id', $id)->first();
+        $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
+        $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
         return view('reports.show-sick-leave-fahd', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 
@@ -590,8 +599,12 @@ class PDFReportsController extends Controller
 
     public function showReviewScene($id) {
         $report = ReviewScene::where('id', $id)->first();
+        $hijri_start = Hijri::Date('A h:i d/m/Y', $report->admission);
+        $hijri_end = Hijri::Date('A h:i d/m/Y', $report->discharge);
         return view('reports.show-review-scene', [
-            'report' => $report
+            'report' => $report,
+            'hijri_start' => $hijri_start,
+            'hijri_end' => $hijri_end,
         ]);
     }
 

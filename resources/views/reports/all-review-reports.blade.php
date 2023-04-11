@@ -43,7 +43,7 @@
                                 @foreach($review_reports as $report)
                                 <tr>
                                     <td>{{ $report->id }}</td>
-                                    <td><a class="btn text-primary" href="">{{ $report->leave_id }}</a></td>
+                                    <td><a class="btn text-primary" href="{{ route('show-review-report', $report->id) }}">{{ $report->leave_id }}</a></td>
                                     <td>{{ $report->national_id }}</td>
                                     <td>{{ $report->national_type }}</td>
                                     <td>{{ $report->name_ar }}</td>

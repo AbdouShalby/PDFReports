@@ -29,7 +29,7 @@
                     <div class="dropdown-menu dropdown-menu-right mailbox animated zoomIn" aria-labelledby="2">
                         <ul>
                             <li>
-                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
+                                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 120px;"><div class="message-center" style="overflow: hidden; width: auto; height: 250px;">
                                     <!-- Message -->
                                     <a href="{{ route('switchLang','ar') }}">
                                         <div class="user-img"> <img src="{{ asset('images/ar.svg') }}" alt="Arabic"></div>
@@ -38,7 +38,7 @@
                                         </div>
                                     </a>
                                     <!-- Message -->
-                                    <a href="{{ route('switchLang','en') }}">
+                                    <a href="{{ route('switchLang','en') }}" style="border-bottom: none">
                                         <div class="user-img"> <img src="{{ asset('images/en.svg') }}" alt="user"></div>
                                         <div class="mail-contnet">
                                             {{ __('dashboard.english') }}
