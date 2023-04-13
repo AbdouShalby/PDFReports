@@ -364,8 +364,8 @@ class PDFReportsController extends Controller
 
         function generateLeaveID() {
             do {
-                $random = rand(1000000, 9999999); // generates a random 7-digit number
-                $id = 'GSL2303'.$random; // concatenates the string 'PSL2303' with the random number
+                $random = rand(1000, 9999); // generates a random 7-digit number
+                $id = '12'.$random; // concatenates the string 'PSL2303' with the random number
             } while (ReviewReport::where('leave_id', $id)->exists()); // loops until a unique leave_id is generated
             return $id; // returns the generated leave_id
         }
