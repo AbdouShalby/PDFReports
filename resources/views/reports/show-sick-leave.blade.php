@@ -11,31 +11,32 @@
     </div>
     <!-- End Bread crumb -->
     <!-- Container fluid  -->
+
     <div class="container-fluid">
         <!-- Start Page Content -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
+                <div class="card" id="A4">
                     <div class="card-body a4 border border-dark">
                         <div class="row">
-                            <div class="col-4 m-auto">
+                            <div class="col-4 m-auto seha">
                                 <img class="img-responsive w-50 ml-5 mt-4" src="{{ asset('images/sick-leave/img_01.png') }}" alt="Seha">
                             </div>
                             <div class="col-4 KSA">
                                 <img class="img-responsive" src="{{ asset('images/sick-leave/img_06.png') }}" alt="KSA">
                                 <h6 class="text-center text-dark">Kingdom of Saudi Arabia</h6>
                             </div>
-                            <div class="col-4">
+                            <div class="col-4 right-style">
                                 <img class="img-responsive float-right" src="{{ asset('images/sick-leave/img_05.png') }}" alt="Description">
                             </div>
                         </div>
                         <div class="row sick">
                             <div class="col-12 text-center">
-                                <h2>تقرير اجازة مرضية</h2>
+                                <h2 dir="rtl">تقرير اجازة مرضية</h2>
                                 <h2>Sick Leave Report</h2>
                             </div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-1">
                             <div class="col-11 table-responsive m-auto">
                                 <table class="table">
                                     <tr>
@@ -92,13 +93,152 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="row mt-5">
+                            <div class="col-6 qrcode">
+                                <div class="text-center">
+                                    <img class="img-responsive" src="{{ asset('images/sick-leave/img_02.png') }}" alt="QRCode">
+                                    <p>قم بمسح الباركود للتحقق من التقرير إلكترونًيا تأكد من مطابقة
+                                        بيانات التقرير برقم الهوية الوطنية أو الإقامة</p>
+                                    <p class="mt-3">Scan the QR code to electronically check the report
+                                        Make sure the information in this report matches the
+                                        .ones in the National ID or Iqama</p>
+                                </div>
+                            </div>
+                            <div class="col-6 ministry">
+                                <div class="text-center">
+                                    <img class="img-responsive mt-4" src="{{ asset('images/sick-leave/img_03.png') }}" alt="Ministry Of Health">
+                                    <p class="mt-1">{{ $report->medical_complex_ar }}</p>
+                                    <p class="mt-3">{{ $report->medical_complex_en }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row end">
+                            <div class="col-6">
+                                <p>{{ $report->created_at->format('g:i A') }}</p>
+                                <p>{{ $report->created_at->format('D') }}, {{ $report->created_at->format('d M Y') }}</p>
+                            </div>
+                            <div class="col-6">
+                                <img class="img-responsive" src="{{ asset('images/sick-leave/img_04.png') }}" alt="National Health Information Center">
+                            </div>
+                        </div>
                     </div>
                     <div class="text-center my-3 btn-holder">
-                        <button class="btn btn-primary" onclick="window.print()">Print</button>
+                        <button class="btn btn-primary" onclick="printCanvas()">Print</button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script>
+            /*
+            function printCanvas() {
+                // Select the div element to be converted
+                var divToPrint = document.getElementById("A4");
+
+                // Use html2canvas to convert the div to a canvas element
+                html2canvas(divToPrint).then(function(canvas) {
+                    // Create a new window to print the canvas image
+                    var win = window.open();
+                    win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%">');
+                    win.print();
+                    win.close();
+                });
+            }
+*/
+            /*
+            function printCanvas() {
+                // Select the div element to be converted
+                var divToPrint = document.getElementById("A4");
+
+                // Use html2canvas to convert the div to a canvas element
+                html2canvas(divToPrint).then(function(canvas) {
+                    // Create a new window to print the canvas image
+                    var win = window.open();
+                    win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                    win.print();
+                    win.close();
+                });
+            }
+            */
+/*
+            function printCanvas() {
+                // Select the div element to be converted
+                var divToPrint = document.getElementById("A4");
+
+                // Use html2canvas to convert the div to a canvas element
+                html2canvas(divToPrint).then(function(canvas) {
+                    // Create a new window to print the canvas image
+                    var win = window.open();
+                    win.document.write('<html><head><style>body, html {font-family: \'Cairo\', sans-serif;} @media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                    win.print();
+                    win.close();
+                });
+            }
+            */
+
+            function printCanvas_() {
+                // Select the div element to be converted
+                var divToPrint = document.getElementById("A4");
+
+                // Use html2canvas to convert the div to a canvas element
+                html2canvas(divToPrint, {
+                    letterRendering:true
+                }).then(function(canvas) {
+                    // Create a new window to print the canvas image
+                    var win = window.open();
+                    win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                    win.print();
+                    win.close();
+                });
+            }
+
+            function printCanvas1() {
+                html2canvas(document.querySelector("#A4")).then(canvas => {
+                    document.body.appendChild(canvas);
+                });
+                setTimeout(function () {
+                    var canvas = document.querySelector("canvas"),
+                        link = document.createElement("a");
+
+                    link.innerHTML = "save image";
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+                            link.href = canvas.toDataURL();
+                            link.download = "image.png";
+                        },
+                        false);
+
+                    document.body.appendChild(link);
+                }, 500);
+            }
+
+
+
+            function printCanvas() {
+                // Select the div element to be converted
+                var divToPrint = document.getElementById("A4");
+
+                // Use dom-to-image to convert the div to a canvas element
+                domtoimage.toPng(divToPrint)
+                    .then(function(dataUrl) {
+                        // Create a new window to print the canvas image
+                        var win = window.open();
+                        win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + dataUrl + '" style="width:100%"></body></html>');
+                        win.print();
+                        win.close();
+                    })
+                    .catch(function(error) {
+                        console.error('Failed to generate image:', error);
+                    });
+            }
+
+
+
+
+
+        </script>
         <!-- End PAge Content -->
     </div>
     <!-- End Container fluid  -->

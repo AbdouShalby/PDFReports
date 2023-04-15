@@ -15,9 +15,8 @@
 .a4 .KSA h6 {
     margin-top: -40px;
 }
-
 .a4 .sick {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 .a4 .sick h2:first-child {
     color: rgb(58, 116, 185);
@@ -25,7 +24,6 @@
 .a4 .sick h2 {
     color: rgb(44, 62, 119);
 }
-
 .a4 div.table-responsive {
     border: 1px solid #DDD;
     border-radius: 10px;
@@ -33,6 +31,7 @@
 }
 .a4 div.table-responsive th {
     border: none;
+    font-family: 'Cairo', sans-serif;
 }
 .a4 div.table-responsive th.head {
     font-size: 14px;
@@ -58,24 +57,42 @@
     border-top: 2px solid #DDD;
     border-bottom: 2px solid #DDD;
 }
+.a4 .qrcode {
+    border-right: 1px solid #DDD;
+}
+.a4 .qrcode img,
+.a4 .ministry img,
+.a4 .end img {
+    width: 125px;
+}
+.a4 .qrcode p,
+.a4 .ministry p,
+.a4 .end p {
+    font-family: 'Cairo', sans-serif;
+    font-size: 10px;
+    width: 70%;
+    margin: auto;
+    color: #000;
+    line-height: 1.5;
+}
+.a4 .end p:first-child {
+    margin-top: 25%;
+}
+.a4 .end img {
+    float: right;
+    margin-top: 20%;
+    margin-right: 10%;
+}
 
 @media print {
     @page {
-        margin: 0;  /* this affects the margin in the printer settings */
+        size: A4;
+        margin: 0;
     }
-    .a4 {
-        width: 2480px;
-    }
-    .a4 .KSA h6 {
-        margin-top: -80px;
-        font-size: 40px;
-    }
-    .a4 .sick {
-        margin-top: 300px;
-    }
-    .a4 .sick h2 {
-        margin-top: 70px;
-        font-size: 80px;
+    /* Hide print title and time */
+    .page-header,
+    .page-footer {
+        display: none;
     }
     .page-titles, .card-title, .btn-holder, .footer { display: none}
 }

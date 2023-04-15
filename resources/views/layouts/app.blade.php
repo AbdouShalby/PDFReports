@@ -23,12 +23,13 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/normalize.css') }}" rel="stylesheet">
     @if(app()->getLocale() == 'en')
     <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
     @else
     <link rel="stylesheet" href="{{ asset('css/customs_ar.css') }}">
     @endif
-    <link href="{{ isset($pdf_css) ? asset('css/'. $pdf_css) : '' }}" rel="stylesheet" type="text/css" />
+    <link href="{{ isset($pdf_css) ? asset('css/'. $pdf_css) : '' }}" rel="stylesheet" type="text/css"  />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>
@@ -39,6 +40,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+
 
 </head>
 <body class="fix-header fix-sidebar">
@@ -69,21 +72,14 @@
     <!--stickey kit -->
     <script src="{{ asset('js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
 
-
-    <script src="{{ asset('js/lib/datamap/d3.min.js') }}"></script>
-    <script src="{{ asset('js/lib/datamap/topojson.js') }}"></script>
-    <script src="{{ asset('js/lib/datamap/datamaps.world.min.js') }}"></script>
-    <script src="{{ asset('js/lib/datamap/datamap-init.js') }}"></script>
-
-    <script src="{{ asset('js/lib/weather/jquery.simpleWeather.min.js') }}"></script>
-    <script src="{{ asset('js/lib/weather/weather-init.js') }}"></script>
     <script src="{{ asset('js/lib/owl-carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
 
+    <!--html2canvas JavaScript -->
+    <script src="{{ asset('js/html2canvas.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
 
-    <script src="{{ asset('js/lib/chartist/chartist.min.js') }}"></script>
-    <script src="{{ asset('js/lib/chartist/chartist-plugin-tooltip.min.js') }}"></script>
-    <script src="{{ asset('js/lib/chartist/chartist-init.js') }}"></script>
+
     <!--Custom JavaScript -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
 </body>
