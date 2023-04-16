@@ -84,15 +84,3 @@
     margin-right: 10%;
 }
 
-@media print {
-    @page {
-        size: A4;
-        margin: 0;
-    }
-    /* Hide print title and time */
-    .page-header,
-    .page-footer {
-        display: none;
-    }
-    .page-titles, .card-title, .btn-holder, .footer { display: none}
-}

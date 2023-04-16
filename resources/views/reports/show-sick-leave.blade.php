@@ -16,8 +16,9 @@
         <!-- Start Page Content -->
         <div class="row">
             <div class="col-lg-12">
-                <div class="card" id="A4">
+                <div class="card">
                     <div class="card-body a4 border border-dark">
+                        <div id="A4">
                         <div class="row">
                             <div class="col-4 m-auto seha">
                                 <img class="img-responsive w-50 ml-5 mt-4" src="{{ asset('images/sick-leave/img_01.png') }}" alt="Seha">
@@ -121,9 +122,12 @@
                                 <img class="img-responsive" src="{{ asset('images/sick-leave/img_04.png') }}" alt="National Health Information Center">
                             </div>
                         </div>
+                        </div>
                     </div>
                     <div class="text-center my-3 btn-holder">
-                        <button class="btn btn-primary" onclick="printCanvas()">Print</button>
+                        <button class="btn btn-success" onclick="generatePDF(1)">Print</button>
+                        <button class="btn btn-primary" onclick="generatePDF(2)">Download</button>
+                        <button class="btn btn-info" onclick="generatePDF(3)">Print & Download</button>
                     </div>
                 </div>
             </div>
@@ -233,6 +237,62 @@
                         console.error('Failed to generate image:', error);
                     });
             }
+
+            function generatePDF_Good() {
+                // Get the div element
+                const div = document.getElementById("A4");
+
+                // Create a new jsPDF instance
+                const doc = new jsPDF();
+
+                // Convert the div to PDF using html2canvas
+                html2canvas(div).then((canvas) => {
+                    // Add the canvas to the PDF document
+                    doc.addImage(canvas.toDataURL(), "PNG", 10, 10, 180, 0);
+
+                    // Print the PDF document
+                    doc.autoPrint();
+                    doc.output("dataurlnewwindow");
+                });
+            }
+
+
+            function generatePDF(method) {
+                // Get the div element
+                const div = document.getElementById("A4");
+
+                // Create a new jsPDF instance
+                const doc = new jsPDF();
+
+                // Convert the div to PNG using dom-to-image
+                domtoimage.toPng(div).then((dataUrl) => {
+                    // Add the PNG image to the PDF document
+                    doc.addImage(dataUrl, "PNG", 10, 10, 180, 0);
+
+                    // Print the PDF document
+                    switch(method)
+                    {
+
+                        case 1:
+                            doc.autoPrint();
+                            window.open(doc.output('bloburl'), '_blank');
+                            break;
+                        case 2:
+                            doc.save("{{ $report->leave_id }}.pdf");
+                            break;
+
+                        case 3:
+                            doc.autoPrint();
+                            doc.save("{{ $report->leave_id }}.pdf");
+                            break;
+                    }
+
+                });
+            }
+
+
+
+
 
 
 

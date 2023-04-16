@@ -60,6 +60,7 @@
     </div>
     <!-- End Wrapper -->
 
+
     <!-- All Jquery -->
     <script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap tether Core JavaScript -->
@@ -76,8 +77,12 @@
     <script src="{{ asset('js/lib/owl-carousel/owl.carousel-init.js') }}"></script>
 
     <!--html2canvas JavaScript -->
-    <script src="{{ asset('js/html2canvas.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+
+
 
 
     <!--Custom JavaScript -->
