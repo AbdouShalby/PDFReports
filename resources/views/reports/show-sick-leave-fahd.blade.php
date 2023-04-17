@@ -1,87 +1,307 @@
 @php $title = 'all-sick-leaves-fahd'; $pdf_css = 'sick-leave-fahd.css' @endphp
 @extends('layouts.app')
 @section('content')
-<!-- Page wrapper  -->
-<div class="page-wrapper">
-    <!-- Bread crumb -->
-    <div class="row page-titles">
-        <div class="col-md-5 align-self-center">
-            <h3 class="text-primary">{{ __('sidebar.all-sick-leaves') }}</h3>
+    <!-- Page wrapper  -->
+    <div class="page-wrapper">
+        <!-- Bread crumb -->
+        <div class="row page-titles">
+            <div class="col-md-5 align-self-center">
+                <h3 class="text-primary">{{ __('sidebar.all-sick-leaves-fahd') }}</h3>
+            </div>
         </div>
-    </div>
-    <!-- End Bread crumb -->
-    <!-- Container fluid  -->
-    <div class="container-fluid">
-        <!-- Start Page Content -->
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card">
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-primary alert-dismissible fade show">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-                            {{ $message }}
-                        </div>
-                    @endif
-                    <div class="card-body">
-                        <div class="stl_02">
-                            <div class="stl_03">
-                                <object data="{{ asset('images/sick-leave-fahd/img_49.svg') }}" type="image/svg+xml" class="stl_04" style="position:absolute; width:49.5833em; height:70.1667em;">
-                                    <embed src="{{ asset('images/sick-leave-fahd/img_49.svg') }}" type="image/svg+xml" />
-                                </object>
-                            </div>
-                            <div class="stl_view">
-                                <div class="stl_05 stl_06">
-                                    <div class="stl_01" style="left:20.5605em;top: 4.8877em; "><span class="stl_07 stl_08 stl_09" style="word-spacing:0.0033em;">Kingdom of Saudi Arabia &nbsp;</span></div>
-                                    <div class="stl_01" style="left:18.9516em;top: 16.3482em; "><span class="stl_10 stl_08 stl_11" style="word-spacing:0.0065em;">Sick Leave Report &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.8894em;top: 21.5327em; "><span class="stl_12 stl_08 stl_13" style="word-spacing:0.0014em;">Leave ID &nbsp;</span></div>
-                                    <div class="stl_01" style="left:3.8864em;top: 24.0401em; "><span class="stl_14 stl_08 stl_15" style="word-spacing:0.0001em;">Leave Duration &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.576em;top: 26.5474em; "><span class="stl_12 stl_08 stl_16" style="word-spacing:-0.0024em;">Issue Date &nbsp;</span></div>
-                                    <div class="stl_01" style="left:21.8142em;top: 21.5327em; "><span class="stl_17 stl_08 stl_18">{{ $report->leave_id }}</span></div>
-                                    <div class="stl_01" style="left:11.4504em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19" style="word-spacing:0.0001em;">{{ $report->leave_duration }} day ( {{ $report->leave_start }} to {{ $report->leave_end }} ) &nbsp;</span></div>
-                                    <div class="stl_01" style="left:26.3484em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19" style="word-spacing:0.038em;">( {{ $hijri_end }} &nbsp;</span></div>
-                                    <div class="stl_01" style="left:22.6709em;top: 26.5474em; "><span class="stl_17 stl_08 stl_19">{{ $report->issue_date }}</span></div>
-                                    <div class="stl_01" style="left:31.8644em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19" style="word-spacing:-0.033em;">{{ $hijri_start }} ) &nbsp;</span></div>
-                                    <div class="stl_01" style="left:37.9656em;top: 24.0401em; "><span class="stl_14 stl_08 stl_19">{{ $report->leave_duration }}</span></div>
-                                    <div class="stl_01" style="left:30.9858em;top: 29.0em; "><span class="stl_20 stl_08 stl_19" style="font-family: 'Cairo', sans-serif;">{{ $report->name_ar }} &nbsp;</span></div>
-                                    <div class="stl_01" style="left:5.2446em;top: 29.0548em; "><span class="stl_12 stl_08 stl_21">Name &nbsp;</span></div>
-                                    <div class="stl_01" style="left:11.3634em;top: 29.1715em; "><span class="stl_22 stl_08 stl_19" style="word-spacing:0em;">{{ $report->name_en }}</span><span class="stl_22 stl_08 stl_19" style="word-spacing:0.219em;"></span></div>
-                                    <div class="stl_01" style="left:3.4058em;top: 31.604em; "><span class="stl_12 stl_08 stl_23" style="word-spacing:0.0079em;">National ID/Iqama &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.5133em;top: 34.1113em; "><span class="stl_12 stl_08 stl_24">Nationality &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.7223em;top: 36.6188em; "><span class="stl_12 stl_08 stl_25">Employer &nbsp;</span></div>
-                                    <div class="stl_01" style="left:23.0065em;top: 31.604em; "><span class="stl_17 stl_08 stl_19">{{ $report->national_id }}</span></div>
-                                    <div class="stl_01" style="left:42.22em;top: 31.604em; "><span class="stl_12 stl_08 stl_19">/</span></div>
-                                    <div class="stl_01" style="left:32.065em;top: 34.1113em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em; font-family: 'Cairo', sans-serif;">{{ $report->nationality_ar }}</span></div>
-                                    <div class="stl_01" style="left:31.565em;top: 36.5em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em; font-family: 'Cairo', sans-serif;">{{ $report->employer }}</span></div>
-                                    <div class="stl_01" style="left:15.0652em;top: 34.1113em; "><span class="stl_17 stl_08 stl_09" style="word-spacing:0.0056em;">{{ $report->nationality_en }}</span></div>
-                                    <div class="stl_01" style="left:13.0385em;top: 39.1932em; "><span class="stl_22 stl_08 stl_19">{{ $report->physician_name_en }}</span></div>
-                                    <div class="stl_01" style="left:13.0385em;top: 41.693em; "><span class="stl_22 stl_08 stl_19">{{ $report->position_en }}</span></div>
-                                    <div class="stl_01" style="left:13.0385em;top: 44.193em; "><span class="stl_22 stl_08 stl_19">{{ $report->diagnosis_en }}</span></div>
-                                    <div class="stl_01" style="left:3.782em;top: 39.1261em; "><span class="stl_12 stl_08 stl_26" style="word-spacing:0.0022em;">Physician Name &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.9312em;top: 41.6752em; "><span class="stl_12 stl_08 stl_27">Position &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.9312em;top: 44.175em; "><span class="stl_12 stl_08 stl_27">Diagnosis &nbsp;</span></div>
-                                    <div class="stl_01" style="left:31.163em;top: 39.235em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->physician_name_ar }}</span></div>
-                                    <div class="stl_01" style="left:31.163em;top: 41.735em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->position_ar }}</span></div>
-                                    <div class="stl_01" style="left:31.163em;top: 44.135em; "><span class="stl_22 stl_08 stl_28" style="word-spacing:0.0009em; font-family: 'Cairo', sans-serif;">{{ $report->diagnosis_ar }}</span></div>
-                                    <div class="stl_01" style="left:4.4507em;top: 56.7702em; "><span class="stl_29 stl_08 stl_30" style="word-spacing:-0.0007em;">Scan the QR code to electronically check the report &nbsp;</span></div>
-                                    <div class="stl_01" style="left:4.178em;top: 57.8149em; "><span class="stl_29 stl_08 stl_31" style="word-spacing:-0.0007em;">Make sure the information in this report matches the &nbsp;</span></div>
-                                    <div class="stl_01" style="left:6.4537em;top: 58.8596em; "><span class="stl_29 stl_08 stl_27" style="word-spacing:0.0022em;">.ones in the National ID or Iqama &nbsp;</span></div>
-                                    <div class="stl_01" style="left:36.6704em;top: 58.6127em; "><span class="stl_32 stl_08 stl_33" style="visibility:hidden; word-spacing:0.0003em;">Almurslat clinic &nbsp;</span></div>
+        <!-- End Bread crumb -->
+        <!-- Container fluid  -->
+
+        <div class="container-fluid">
+            <!-- Start Page Content -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body a4 border border-dark">
+                            <div id="A4">
+                                <div class="row">
+                                    <div class="col-4 m-auto seha">
+                                        <img class="img-responsive w-50 ml-5 mt-4" src="{{ asset('images/reports/seha.png') }}" alt="Seha">
+                                    </div>
+                                    <div class="col-4 KSA">
+                                        <img class="img-responsive" src="{{ asset('images/reports/KSA.png') }}" alt="KSA">
+                                        <h6 class="text-center text-dark">Kingdom of Saudi Arabia</h6>
+                                    </div>
+                                    <div class="col-4 right-style">
+                                        <img class="img-responsive float-right" src="{{ asset('images/reports/right.png') }}" alt="Description">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <img class="img-responsive float-right KFMC" src="{{ asset('images/reports/KFMC.png') }}" alt="KFMC">
+                                    </div>
+                                </div>
+                                <div class="row sick">
+                                    <div class="col-12 text-center">
+                                        <h2 dir="rtl">تقرير اجازة مرضية</h2>
+                                        <h2>Sick Leave Report</h2>
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-11 table-responsive m-auto">
+                                        <table class="table">
+                                            <tr>
+                                                <th class="text-center head">Leave ID</th>
+                                                <th class="text-center data" colspan="2">{{ $report->leave_id }}</th>
+                                                <th class="text-center head">رمز الاجازة</th>
+                                            </tr>
+                                            <tr class="with-border">
+                                                <th class="text-center head">Leave Duration</th>
+                                                <th class="text-center data">{{ $report->leave_duration }} day ({{ $report->leave_start }} to {{ $report->leave_end }})</th>
+                                                <th class="text-center data" dir="rtl">{{ $report->leave_duration }} يوم ({{ $hijri_start }} الي {{ $hijri_end }})</th>
+                                                <th class="text-center head">مدة الاجازة</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center head">Issue Date</th>
+                                                <th class="text-center data" colspan="2">{{ $report->issue_date }}</th>
+                                                <th class="text-center head">تاريخ اصدار التقرير</th>
+                                            </tr>
+                                            <tr class="gray-border">
+                                                <th class="text-center head">Name</th>
+                                                <th class="text-center data">{{ $report->name_en }}</th>
+                                                <th class="text-center data" dir="rtl">{{ $report->name_ar }}</th>
+                                                <th class="text-center head">الاسم</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center head">National ID/Iqama</th>
+                                                <th class="text-center data" colspan="2">{{ $report->national_id }}</th>
+                                                <th class="text-center head">رقم الهوية/الإقامة</th>
+                                            </tr>
+                                            <tr class="gray-border">
+                                                <th class="text-center head">Nationality</th>
+                                                <th class="text-center data">{{ $report->nationality_en }}</th>
+                                                <th class="text-center data" dir="rtl">{{ $report->nationality_ar }}</th>
+                                                <th class="text-center head">الجنسية</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center head">Employer</th>
+                                                <th class="text-center data"></th>
+                                                <th class="text-center data">{{ $report->employer }}</th>
+                                                <th class="text-center head">جهة العمل</th>
+                                            </tr>
+                                            <tr class="gray-border">
+                                                <th class="text-center head">Physician Name</th>
+                                                <th class="text-center data">{{ $report->physician_name_en }}</th>
+                                                <th class="text-center data" dir="rtl">{{ $report->physician_name_ar }}</th>
+                                                <th class="text-center head">اسم الطبيب المعالج</th>
+                                            </tr>
+                                            <tr>
+                                                <th class="text-center head">Position</th>
+                                                <th class="text-center data">{{ $report->position_en }}</th>
+                                                <th class="text-center data">{{ $report->position_ar }}</th>
+                                                <th class="text-center head">المسمي الوظيفي</th>
+                                            </tr>
+                                            <tr class="gray-border">
+                                                <th class="text-center head">Diagnosis</th>
+                                                <th class="text-center data">{{ $report->diagnosis_en }}</th>
+                                                <th class="text-center data" dir="rtl">{{ $report->diagnosis_ar }}</th>
+                                                <th class="text-center head">التشخيص</th>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row mt-1">
+                                    <div class="col-6 qrcode">
+                                        <div class="text-center">
+                                            <img class="img-responsive" src="{{ asset('images/reports/QRCode.png') }}" alt="QRCode">
+                                            <p>قم بمسح الباركود للتحقق من التقرير إلكترونًيا تأكد من مطابقة
+                                                بيانات التقرير برقم الهوية الوطنية أو الإقامة</p>
+                                            <p class="mt-3">Scan the QR code to electronically check the report
+                                                Make sure the information in this report matches the
+                                                .ones in the National ID or Iqama</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-6 ministry">
+                                        <div class="text-center">
+                                            <img class="img-responsive mt-4" src="{{ asset('images/reports/ministry.png') }}" alt="Ministry Of Health">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row end">
+                                    <div class="col-12">
+                                        <img class="img-responsive" src="{{ asset('images/reports/NHIC.png') }}" alt="National Health Information Center">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="text-center my-3 btn-holder">
-                            <button class="btn btn-primary" onclick="window.print()">Print</button>
+                            <button class="btn btn-success" onclick="generatePDF(1)">Print</button>
+                            <button class="btn btn-primary" onclick="generatePDF(2)">Download</button>
+                            <button class="btn btn-info" onclick="generatePDF(3)">Print & Download</button>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <script>
+                /*
+                function printCanvas() {
+                    // Select the div element to be converted
+                    var divToPrint = document.getElementById("A4");
+
+                    // Use html2canvas to convert the div to a canvas element
+                    html2canvas(divToPrint).then(function(canvas) {
+                        // Create a new window to print the canvas image
+                        var win = window.open();
+                        win.document.write('<img src="' + canvas.toDataURL() + '" style="width:100%">');
+                        win.print();
+                        win.close();
+                    });
+                }
+    */
+                /*
+                function printCanvas() {
+                    // Select the div element to be converted
+                    var divToPrint = document.getElementById("A4");
+
+                    // Use html2canvas to convert the div to a canvas element
+                    html2canvas(divToPrint).then(function(canvas) {
+                        // Create a new window to print the canvas image
+                        var win = window.open();
+                        win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                        win.print();
+                        win.close();
+                    });
+                }
+                */
+                /*
+                            function printCanvas() {
+                                // Select the div element to be converted
+                                var divToPrint = document.getElementById("A4");
+
+                                // Use html2canvas to convert the div to a canvas element
+                                html2canvas(divToPrint).then(function(canvas) {
+                                    // Create a new window to print the canvas image
+                                    var win = window.open();
+                                    win.document.write('<html><head><style>body, html {font-family: \'Cairo\', sans-serif;} @media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                                    win.print();
+                                    win.close();
+                                });
+                            }
+                            */
+
+                function printCanvas_() {
+                    // Select the div element to be converted
+                    var divToPrint = document.getElementById("A4");
+
+                    // Use html2canvas to convert the div to a canvas element
+                    html2canvas(divToPrint, {
+                        letterRendering:true
+                    }).then(function(canvas) {
+                        // Create a new window to print the canvas image
+                        var win = window.open();
+                        win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;} @page{size:A4;margin:0;}}</style></head><body><img src="' + canvas.toDataURL() + '" style="width:100%"></body></html>');
+                        win.print();
+                        win.close();
+                    });
+                }
+
+                function printCanvas1() {
+                    html2canvas(document.querySelector("#A4")).then(canvas => {
+                        document.body.appendChild(canvas);
+                    });
+                    setTimeout(function () {
+                        var canvas = document.querySelector("canvas"),
+                            link = document.createElement("a");
+
+                        link.innerHTML = "save image";
+
+                        link.addEventListener(
+                            "click",
+                            function () {
+                                link.href = canvas.toDataURL();
+                                link.download = "image.png";
+                            },
+                            false);
+
+                        document.body.appendChild(link);
+                    }, 500);
+                }
+
+
+
+                function printCanvas() {
+                    // Select the div element to be converted
+                    var divToPrint = document.getElementById("A4");
+
+                    // Use dom-to-image to convert the div to a canvas element
+                    domtoimage.toPng(divToPrint)
+                        .then(function(dataUrl) {
+                            // Create a new window to print the canvas image
+                            var win = window.open();
+                            win.document.write('<html><head><style>@media print{.page-header,.page-footer{display:none;}@page{size:A4;margin:0;}}</style></head><body><img src="' + dataUrl + '" style="width:100%"></body></html>');
+                            win.print();
+                            win.close();
+                        })
+                        .catch(function(error) {
+                            console.error('Failed to generate image:', error);
+                        });
+                }
+
+                function generatePDF_Good() {
+                    // Get the div element
+                    const div = document.getElementById("A4");
+
+                    // Create a new jsPDF instance
+                    const doc = new jsPDF();
+
+                    // Convert the div to PDF using html2canvas
+                    html2canvas(div).then((canvas) => {
+                        // Add the canvas to the PDF document
+                        doc.addImage(canvas.toDataURL(), "PNG", 10, 10, 180, 0);
+
+                        // Print the PDF document
+                        doc.autoPrint();
+                        doc.output("dataurlnewwindow");
+                    });
+                }
+
+
+                function generatePDF(method) {
+                    // Get the div element
+                    const div = document.getElementById("A4");
+
+                    // Create a new jsPDF instance
+                    const doc = new jsPDF();
+
+                    // Convert the div to PNG using dom-to-image
+                    domtoimage.toPng(div).then((dataUrl) => {
+                        // Add the PNG image to the PDF document
+                        doc.addImage(dataUrl, "PNG", 10, 10, 180, 0);
+
+                        // Print the PDF document
+                        switch(method)
+                        {
+
+                            case 1:
+                                doc.autoPrint();
+                                window.open(doc.output('bloburl'), '_blank');
+                                break;
+                            case 2:
+                                doc.save("{{ $report->leave_id }}.pdf");
+                                break;
+
+                            case 3:
+                                doc.autoPrint();
+                                doc.save("{{ $report->leave_id }}.pdf");
+                                break;
+                        }
+
+                    });
+                }
+
+            </script>
+            <!-- End PAge Content -->
         </div>
-        <!-- End PAge Content -->
+        <!-- End Container fluid  -->
+        <!-- footer -->
+        @include('layouts.footer')
+        <!-- End footer -->
     </div>
-    <!-- End Container fluid  -->
-    <!-- footer -->
-    @include('layouts.footer')
-    <!-- End footer -->
-</div>
-<!-- End Page wrapper  -->
+    <!-- End Page wrapper  -->
 @endsection

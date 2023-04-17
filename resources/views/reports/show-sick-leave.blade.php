@@ -21,14 +21,14 @@
                         <div id="A4">
                         <div class="row">
                             <div class="col-4 m-auto seha">
-                                <img class="img-responsive w-50 ml-5 mt-4" src="{{ asset('images/sick-leave/img_01.png') }}" alt="Seha">
+                                <img class="img-responsive w-50 ml-5 mt-4" src="{{ asset('images/reports/seha.png') }}" alt="Seha">
                             </div>
                             <div class="col-4 KSA">
-                                <img class="img-responsive" src="{{ asset('images/sick-leave/img_06.png') }}" alt="KSA">
+                                <img class="img-responsive" src="{{ asset('images/reports/KSA.png') }}" alt="KSA">
                                 <h6 class="text-center text-dark">Kingdom of Saudi Arabia</h6>
                             </div>
                             <div class="col-4 right-style">
-                                <img class="img-responsive float-right" src="{{ asset('images/sick-leave/img_05.png') }}" alt="Description">
+                                <img class="img-responsive float-right" src="{{ asset('images/reports/right.png') }}" alt="Description">
                             </div>
                         </div>
                         <div class="row sick">
@@ -97,7 +97,7 @@
                         <div class="row mt-5">
                             <div class="col-6 qrcode">
                                 <div class="text-center">
-                                    <img class="img-responsive" src="{{ asset('images/sick-leave/img_02.png') }}" alt="QRCode">
+                                    <img class="img-responsive" src="{{ asset('images/reports/QRCode.png') }}" alt="QRCode">
                                     <p>قم بمسح الباركود للتحقق من التقرير إلكترونًيا تأكد من مطابقة
                                         بيانات التقرير برقم الهوية الوطنية أو الإقامة</p>
                                     <p class="mt-3">Scan the QR code to electronically check the report
@@ -107,7 +107,7 @@
                             </div>
                             <div class="col-6 ministry">
                                 <div class="text-center">
-                                    <img class="img-responsive mt-4" src="{{ asset('images/sick-leave/img_03.png') }}" alt="Ministry Of Health">
+                                    <img class="img-responsive mt-4" src="{{ asset('images/reports/ministry.png') }}" alt="Ministry Of Health">
                                     <p class="mt-1">{{ $report->medical_complex_ar }}</p>
                                     <p class="mt-3">{{ $report->medical_complex_en }}</p>
                                 </div>
@@ -119,7 +119,7 @@
                                 <p>{{ $report->created_at->format('D') }}, {{ $report->created_at->format('d M Y') }}</p>
                             </div>
                             <div class="col-6">
-                                <img class="img-responsive" src="{{ asset('images/sick-leave/img_04.png') }}" alt="National Health Information Center">
+                                <img class="img-responsive" src="{{ asset('images/reports/NHIC.png') }}" alt="National Health Information Center">
                             </div>
                         </div>
                         </div>
@@ -289,14 +289,6 @@
 
                 });
             }
-
-
-
-
-
-
-
-
 
         </script>
         <!-- End PAge Content -->
