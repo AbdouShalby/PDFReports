@@ -20,19 +20,24 @@ use Illuminate\Support\Facades\Session;
 
 Route::get('/', [CheckController::class, 'check'])->name('check');
 
-Route::get('/check/sick-leave', [CheckController::class, 'checkSickLeave'])->name('check-sick-leave');
-Route::post('/check/show-sick-leave', [CheckController::class, 'showSickLeave'])->name('show-out-sick-leave');
+Route::get('/sick-leave', [CheckController::class, 'checkSickLeave'])->name('check-sick-leave');
+Route::post('/get-sick-leave-data', [CheckController::class, 'getSickLeaveData'])->name('get-sick-leave-data');
 
-Route::get('/check/sick-leave-fahad', [CheckController::class, 'checkSickLeaveFahad'])->name('check-sick-leave-fahad');
-Route::post('/check/show-sick-leave-fahad', [CheckController::class, 'showSickLeaveFahad'])->name('show-out-sick-leave-fahad');
+Route::get('/sick-leave-fahad', [CheckController::class, 'checkSickLeaveFahad'])->name('check-sick-leave-fahad');
+Route::post('/get-sick-leave-fahd-data', [CheckController::class, 'getSickLeaveFahdData'])->name('get-sick-leave-fahd-data');
 
-Route::get('/check/review-report', [CheckController::class, 'checkReviewReport'])->name('check-review-report');
-Route::post('/check/show-review-report', [CheckController::class, 'showReviewReport'])->name('show-out-review-report');
+Route::get('/review-report', [CheckController::class, 'checkReviewReport'])->name('check-review-report');
+Route::post('/get-review-report-data', [CheckController::class, 'getReviewReportData'])->name('get-review-report-data');
 
-Route::get('/check/review-scene', [CheckController::class, 'checkReviewScene'])->name('check-review-scene');
-Route::post('/check/show-review-scene', [CheckController::class, 'showReviewScene'])->name('show-out-review-scene');
+Route::get('/review-scene', [CheckController::class, 'checkReviewScene'])->name('check-review-scene');
+Route::post('/get-review-scene-data', [CheckController::class, 'getReviewSceneData'])->name('get-review-scene-data');
 
-Route::get('/qrcode', [HomeController::class, 'qrcodeUrl'])->name('qrcode-url');
+Route::get('/qrcode/{url}', [HomeController::class, 'qrcodeUrl'])->name('qrcode-url');
+
+Route::get('locale/{locale}',function($locale){
+    Session::put('locale',$locale);
+    return redirect()->back();
+})->name('switchLang');
 
 Auth::routes();
 
@@ -70,9 +75,4 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/update-review-scene/{id}', [PDFReportsController::class, 'updateReviewScene'])->name('update-review-scene');
     Route::get('/show-review-scene/{id}', [PDFReportsController::class, 'showReviewScene'])->name('show-review-scene');
     Route::get('/delete-review-scene/{id}', [PDFReportsController::class, 'deleteReviewScene'])->name('delete-review-scene');
-
-    Route::get('locale/{locale}',function($locale){
-        Session::put('locale',$locale);
-        return redirect()->back();
-    })->name('switchLang');
 });

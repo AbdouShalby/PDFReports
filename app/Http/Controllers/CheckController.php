@@ -20,7 +20,7 @@ class CheckController extends Controller
     public function checkSickLeave() {
         return view('check.sick-leave');
     }
-    public function showSickLeave(Request $request) {
+    public function getSickLeaveData(Request $request) {
         $validator = Validator::make($request->all(), [
             'leave_id' => 'required|string',
             'national_id' => 'required|string',
@@ -32,21 +32,16 @@ class CheckController extends Controller
                 ->withInput();
         }
 
-        $report = SickLeave::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
+        $data = SickLeave::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        if (!empty($report)) {
+        if (!empty($data)) {
 
-            $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
-            $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
-
-            return view('reports.sick-leave', [
-                'report' => $report,
-                'hijri_start' => $hijri_start,
-                'hijri_end' => $hijri_end,
+            return view('check.sick-leave', [
+                'data' => $data,
             ]);
 
         } else {
-            $errorMessage = 'No report found with the given data';
+            $errorMessage = __('check.wrong-data');
             return back()->withErrors([$errorMessage])->withInput();
         }
     }
@@ -54,7 +49,7 @@ class CheckController extends Controller
     public function checkSickLeaveFahad() {
         return view('check.sick-leave-fahd');
     }
-    public function showSickLeaveFahad(Request $request) {
+    public function getSickLeaveFahdData(Request $request) {
         $validator = Validator::make($request->all(), [
             'leave_id' => 'required|string',
             'national_id' => 'required|string',
@@ -66,21 +61,16 @@ class CheckController extends Controller
                 ->withInput();
         }
 
-        $report = SickLeaveFahd::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
+        $data = SickLeaveFahd::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        if (!empty($report)) {
+        if (!empty($data)) {
 
-            $hijri_start = Hijri::Date('Y/m/d', $report->leave_start);
-            $hijri_end = Hijri::Date('Y/m/d', $report->leave_end);
-
-            return view('reports.sick-leave-fahd', [
-                'report' => $report,
-                'hijri_start' => $hijri_start,
-                'hijri_end' => $hijri_end,
+            return view('check.sick-leave-fahd', [
+                'data' => $data,
             ]);
 
         } else {
-            $errorMessage = 'No report found with the given data';
+            $errorMessage = __('check.wrong-data');
             return back()->withErrors([$errorMessage])->withInput();
         }
     }
@@ -88,7 +78,7 @@ class CheckController extends Controller
     public function checkReviewReport() {
         return view('check.review-report');
     }
-    public function showReviewReport(Request $request) {
+    public function getReviewReportData(Request $request) {
         $validator = Validator::make($request->all(), [
             'leave_id' => 'required|string',
             'national_id' => 'required|string',
@@ -100,16 +90,16 @@ class CheckController extends Controller
                 ->withInput();
         }
 
-        $report = ReviewReport::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
+        $data = ReviewReport::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        if (!empty($report)) {
+        if (!empty($data)) {
 
-            return view('reports.review-report', [
-                'report' => $report
+            return view('check.review-report', [
+                'data' => $data,
             ]);
 
         } else {
-            $errorMessage = 'No report found with the given data';
+            $errorMessage = __('check.wrong-data');
             return back()->withErrors([$errorMessage])->withInput();
         }
     }
@@ -117,7 +107,8 @@ class CheckController extends Controller
     public function checkReviewScene() {
         return view('check.review-scene');
     }
-    public function showReviewScene(Request $request) {
+    public function getReviewSceneData(Request $request)
+    {
         $validator = Validator::make($request->all(), [
             'leave_id' => 'required|string',
             'national_id' => 'required|string',
@@ -129,21 +120,16 @@ class CheckController extends Controller
                 ->withInput();
         }
 
-        $report = ReviewScene::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
+        $data = ReviewScene::where('leave_id', $request->leave_id)->where('national_id', $request->national_id)->first();
 
-        if (!empty($report)) {
+        if (!empty($data)) {
 
-            $hijri_start = Hijri::Date('A h:i d/m/Y', $report->admission);
-            $hijri_end = Hijri::Date('A h:i d/m/Y', $report->discharge);
-
-            return view('reports.review-scene', [
-                'report' => $report,
-                'hijri_start' => $hijri_start,
-                'hijri_end' => $hijri_end,
+            return view('check.review-scene', [
+                'data' => $data,
             ]);
 
         } else {
-            $errorMessage = 'No report found with the given data';
+            $errorMessage = __('check.wrong-data');
             return back()->withErrors([$errorMessage])->withInput();
         }
     }

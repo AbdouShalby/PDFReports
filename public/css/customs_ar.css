@@ -2,26 +2,14 @@
     direction: rtl !important;
     text-align: right;
 }
-.check {
-    min-height: 200px;
-    border: 2px solid silver;
-    background: linear-gradient(-45deg, #FFF, rgba(238, 238, 238, 0.5), #FFF);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+
+.service-container {
+    margin-top: 700px;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+.check-container {
+    margin-top: 300px;
 }
-
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -33,4 +21,27 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type=number] {
     -moz-appearance: textfield;
+}
+
+#lang-dd {
+    right: -250px;
+}
+
+.f-footer {
+    background: #ffffff none repeat scroll 0 0;
+    border-top: 1px solid rgba(120, 130, 140, 0.13);
+    color: #67757c;
+    left: 0;
+    padding: 17px 15px;
+    position: absolute;
+    right: 0;
+}
+.f-footer > p a {
+    color: #4680ff;
+}
+.f-footer > p {
+    background: #ffffff;
+    margin: 15px -30px 0;
+    padding: 15px 45px;
+    text-align: left;
 }

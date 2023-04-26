@@ -108,7 +108,7 @@
                                 <div class="row mt-1">
                                     <div class="col-6 qrcode">
                                         <div class="text-center">
-                                            <img class="img-responsive" src="{{ asset('images/reports/QRCode.png') }}" alt="QRCode">
+                                            <img class="img-responsive" src="{{ asset('images/reports/sick-leave-fahad.svg') }}" alt="QRCode">
                                             <p>قم بمسح الباركود للتحقق من التقرير إلكترونًيا تأكد من مطابقة
                                                 بيانات التقرير برقم الهوية الوطنية أو الإقامة</p>
                                             <p class="mt-3">Scan the QR code to electronically check the report

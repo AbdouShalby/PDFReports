@@ -23,7 +23,7 @@ class HomeController extends Controller
 
     public function qrcodeUrl($url)
     {
-        $qrCode = QrCode::size(250)->generate($url);
+        $qrCode = QrCode::size(250)->generate('https://el-seha.com/' . $url);
 
         return response($qrCode)->header('Content-Type', 'image/svg+xml');
     }

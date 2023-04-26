@@ -1,116 +1,65 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon.png') }}">
-    <title>{{ env('APP_NAME') }}</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="{{ asset('css/lib/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="{{ asset('css/helper.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    @if(app()->getLocale() == 'en')
-        <link rel="stylesheet" href="{{ asset('css/customs.css') }}" />
-    @else
-        <link rel="stylesheet" href="{{ asset('css/customs_ar.css') }}">
-    @endif
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
-    <!--[if lt IE 9]>
-    <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
-
-<body class="fix-header fix-sidebar" {{( Session::get('locale') === 'en' ? 'ltr' : 'rtl' )}}>
-<!-- Preloader - style you can find in spinners.css -->
-<div class="preloader">
-    <svg class="circular" viewBox="25 25 50 50">
-        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
-</div>
-<!-- Main wrapper  -->
-<div id="main-wrapper" class="container">
-    <!-- Container fluid  -->
-    <div class="container-fluid">
-        <!-- Start Page Content -->
-        <div class="row">
-            <div class="col-12">
-                <div class="card check">
-                    <div class="card-title">
-                        <h4>{{ __('check.fill-sick-leave') }}</h4>
+@extends('check-layouts.app')
+@section('content')
+    <div class="row">
+        <div class="col-12">
+            @if(empty($data))
+            <div class="row justify-content-center check-container sick-leave">
+                <div class="col-lg-6 my-3 p-3 border border-primary bg-transparent">
+                    <h4 class="card-title text-dark">{{ __('check.sick-leave') }}</h4>
+                    <span class="small">{{ __('check.fill-sick-leave') }}</span>
+                    <form class="form mt-5" action="{{ route('get-sick-leave-data') }}" method="POST">
+                        @if($errors->any())
+                            @foreach ($errors->all() as $error)
+                                <span class="small text-danger d-block">{{ $error }}</span>
+                            @endforeach
+                        @endif
+                        @csrf
+                        <input name="leave_id" type="text" class="form-control input-default my-3" placeholder="{{ __('check.leave-id') }}" required>
+                        @error('leave_id')
+                        <div class="alert alert-danger col-12 mt-1" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        <input name="national_id" type="text" class="form-control input-default my-3" placeholder="{{ __('check.national-id') }}" required>
+                        @error('national_id')
+                        <div class="alert alert-danger col-12 mt-1" role="alert">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        <button class="btn btn-info" type="submit">{{ __('check.button') }}</button>
+                    </form>
+                </div>
+            </div>
+            @endif
+            @if(!empty($data))
+            <div class="row justify-content-center check-container sick-leave">
+                <div class="col-lg-12 my-3 p-3 border border-info bg-white">
+                    <div class="row mb-5">
+                        <div class="col-lg-6">
+                            <span class="d-block mb-2 mt-5 text-dark">{{ __('check.name') }}</span>
+                            <span class="d-block text-primary">@if(app()->getLocale() == 'en') {{ $data->name_en }} @else {{ $data->name_ar }} @endif</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="d-block mb-2 mt-5 text-dark">{{ __('check.leave-id') }}:</span>
+                            <span class="d-block text-primary">{{ $data->leave_id }}</span>
+                        </div>
                     </div>
-                    <div class="row justify-content-center ">
-                        <div class="col-8 my-3 mx-3 p-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="basic-form">
-                                        @if ($errors->any())
-                                            <div class="alert alert-danger">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
-                                        <form action="{{ route('show-out-sick-leave') }}" method="post">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label>{{ __('check.leave-id') }}</label>
-                                                <input name="leave_id" type="text" class="form-control input-flat" placeholder="{{ __('check.id-example') }}">
-                                                @error('leave_id')
-                                                    <div class="alert alert-danger col-12 mt-1" role="alert">
-                                                        {{ $message }}
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <label>{{ __('check.national-id') }}</label>
-                                                <input name="national_id" type="text" class="form-control input-flat" placeholder="1234567890">
-                                                @error('national_id')
-                                                <div class="alert alert-danger col-12 mt-1" role="alert">
-                                                    {{ $message }}
-                                                </div>
-                                                @enderror
-                                            </div>
-                                            <div class="form-group">
-                                                <button type="submit" class="btn btn-info">{{ __('check.button') }}</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="row my-5">
+                        <div class="col-lg-6">
+                            <span class="d-block mb-2 mt-5 text-dark">{{ __('check.status') }}</span>
+                            <span class="d-block text-primary">{{ __('check.completed') }}</span>
+                        </div>
+                        <div class="col-lg-6">
+                            <span class="d-block mb-2 mt-5 text-dark">{{ __('check.date') }}</span>
+                            <span class="d-block text-primary">{{ \Carbon\Carbon::parse($data->created_at)->format('Y-m-d') }}</span>
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-12">
+                    <a href="{{ route('check-sick-leave') }}" class="btn btn-info">{{ __('check.back') }}</a>
+                </div>
             </div>
+            @endif
         </div>
-        <!-- End PAge Content -->
     </div>
-    <!-- End Container fluid  -->
-</div>
-<!-- End Wrapper -->
-<!-- All Jquery -->
-<script src="{{ asset('js/lib/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap tether Core JavaScript -->
-<script src="{{ asset('js/lib/bootstrap/js/popper.min.js') }}"></script>
-<script src="{{ asset('js/lib/bootstrap/js/bootstrap.min.js') }}"></script>
-<!-- slimscrollbar scrollbar JavaScript -->
-<script src="{{ asset('js/jquery.slimscroll.js') }}"></script>
-<!--Menu sidebar -->
-<script src="{{ asset('js/sidebarmenu.js') }}"></script>
-<!--stickey kit -->
-<script src="{{ asset('js/lib/sticky-kit-master/dist/sticky-kit.min.js') }}"></script>
-<!--Custom JavaScript -->
-<script src="{{ asset('js/custom.min.js') }}"></script>
-
-</body>
-
-</html>
+@endsection
